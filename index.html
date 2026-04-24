@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHU-JEN LIN | Robotics & Embodied AI Researcher</title>
+    <title>SHU-JEN LIN | Robotics & Embodied AI</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -19,22 +19,181 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        
         body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             background-color: var(--bg); 
             color: var(--text-main); 
             line-height: 1.7;
-            overflow-x: hidden;
         }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 80px 24px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
 
-        /* --- Hero Section --- */
-        header { text-align: left; margin-bottom: 100px; animation: fadeInUp 1s ease-out; }
-        
+        /* Floating Language Toggle */
+        .lang-switch {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            z-index: 1000;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+            transition: 0.3s;
+        }
+        .lang-switch:hover { transform: scale(1.05); background: var(--primary-dark); }
+
+        /* Hero Section */
+        header { padding: 60px 0; animation: fadeInUp 1s ease-out; }
         .name-title { 
             font-size: clamp(2.5rem, 8vw, 4rem); 
+            font-weight: 800; 
+            background: linear-gradient(135deg, #fff 0%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .typewriter {
+            font-family: 'Fira Code', monospace;
+            font-size: 1.3rem;
+            color: var(--accent);
+            border-right: 3px solid var(--accent);
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+
+        /* Grid & Cards */
+        section { margin-bottom: 80px; }
+        h2 { font-size: 2rem; margin-bottom: 30px; color: #fff; display: flex; align-items: center; gap: 15px; }
+        h2::after { content: ""; flex: 1; height: 1px; background: var(--card-bg); }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+        .card { 
+            background: var(--card-bg); 
+            padding: 35px; 
+            border-radius: 20px; 
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s ease;
+        }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary); }
+        .card i { font-size: 2rem; color: var(--primary); margin-bottom: 20px; display: block; }
+
+        .tag { 
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.1); 
+            color: var(--primary); 
+            padding: 4px 12px; 
+            border-radius: 6px; 
+            font-size: 0.8rem; 
+            margin: 4px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        /* Animations */
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--accent) } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Language Hiding */
+        [lang="zh"] { display: none; }
+    </style>
+</head>
+<body>
+
+<button class="lang-switch" onclick="toggleLang()">EN / 中文</button>
+
+<div class="container">
+    <header>
+        <h1 class="name-title">SHU-JEN LIN</h1>
+        <div>
+            <span class="typewriter" lang="en">> Robotics Researcher & Systems Architect_</span>
+            <span class="typewriter" lang="zh">> 機器人研究員與系統架構師_</span>
+        </div>
+        <p style="margin-top:20px; color:var(--text-muted); font-size: 1.1rem;">
+            <span lang="en">Incoming Dual MS @ <strong>University of Cincinnati</strong>. Pioneering research in Embodied AI and Digital Twins.</span>
+            <span lang="zh">預計 2026 前往<strong>辛辛那提大學</strong>攻讀雙聯碩士。專注於具身智能與數位孿生研究。</span>
+        </p>
+    </header>
+
+    <section>
+        <h2 lang="en">Expertise</h2>
+        <h2 lang="zh">專業技術</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-robot"></i>
+                <h3 lang="en">Autonomous Systems</h3>
+                <h3 lang="zh">自主系統</h3>
+                <p lang="en">Architecting scalable robot software using ROS2. Experienced in UGV integration and spherical robot dynamics.</p>
+                <p lang="zh">使用 ROS2 架構開發可擴展的機器人軟體。具備 UGV 整合與球型機器人動力學開發經驗。</p>
+                <div class="tags">
+                    <span class="tag">ROS2 Humble/Jazzy</span><span class="tag">Manipulation</span>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-brain"></i>
+                <h3 lang="en">Embodied AI</h3>
+                <h3 lang="zh">具身智能</h3>
+                <p lang="en">Leveraging NVIDIA Omniverse for high-fidelity Digital Twins and synthetic data training.</p>
+                <p lang="zh">利用 NVIDIA Omniverse 建立高保真數位孿生環境與合成數據訓練。</p>
+                <div class="tags">
+                    <span class="tag">Omniverse</span><span class="tag">Digital Twin</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 lang="en">Experience</h2>
+        <h2 lang="zh">專業經歷</h2>
+        <div class="card">
+            <div style="margin-bottom: 25px;">
+                <h4 style="color:var(--accent);">Micro-Star International (MSI)</h4>
+                <p lang="en">Industrial Researcher | Oct 2025 - Present</p>
+                <p lang="zh">產學合作研究員 | 2025.10 - 現在</p>
+            </div>
+            <div style="margin-bottom: 25px;">
+                <h4 style="color:var(--accent);">Defense Key System R&D Center</h4>
+                <p lang="en">Research Assistant | Jun 2025 - Present</p>
+                <p lang="zh">研究助理 | 2025.06 - 現在</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 lang="en">Education</h2>
+        <h2 lang="zh">教育背景</h2>
+        <div class="card">
+            <p><strong>University of Cincinnati (USA)</strong><br>
+            <span lang="en">MS in Mechanical Engineering | Expected Fall 2026</span>
+            <span lang="zh">機械工程雙聯碩士 | 預計 2026 秋季入學</span></p>
+            <hr style="opacity:0.1; margin: 15px 0;">
+            <p><strong>National Chung Hsing University (Taiwan)</strong><br>
+            <span lang="en">MS in Mechanical Engineering | GPA 3.76</span>
+            <span lang="zh">機械工程碩士 | GPA 3.76</span></p>
+        </div>
+    </section>
+
+    <footer style="text-align:center; padding: 40px; color:var(--text-muted);">
+        <p>&copy; 2026 SHU-JEN LIN</p>
+    </footer>
+</div>
+
+<script>
+    let currentLang = 'en';
+    function toggleLang() {
+        currentLang = currentLang === 'en' ? 'zh' : 'en';
+        document.querySelectorAll('[lang="en"]').forEach(el => el.style.display = currentLang === 'en' ? 'inline-block' : 'none');
+        document.querySelectorAll('[lang="zh"]').forEach(el => el.style.display = currentLang === 'zh' ? 'inline-block' : 'none');
+    }
+</script>
+
+</body>
+</html>            font-size: clamp(2.5rem, 8vw, 4rem); 
             font-weight: 800; 
             letter-spacing: -1px;
             background: linear-gradient(135deg, #fff 0%, #60a5fa 100%);
