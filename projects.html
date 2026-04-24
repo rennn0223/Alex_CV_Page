@@ -3,54 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHU-JEN LIN | Projects</title>
+    <title>SHU-JEN LIN | Deep Dive Projects</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #3b82f6; --bg: #050505; --card: #111; }
+        :root { --primary: #3b82f6; --bg: #050505; --card: #111; --accent: #10b981; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: #fff; padding-top: 120px; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: #fff; padding-top: 120px; line-height: 1.8; }
         body.lang-en .lang-zh { display: none !important; }
         body.lang-zh .lang-en { display: none !important; }
-        nav { display: flex; justify-content: center; align-items: center; gap: 40px; padding: 25px; background: rgba(0,0,0,0.8); backdrop-filter: blur(15px); position: fixed; width: 100%; top: 0; z-index: 1000; }
+        
+        nav { display: flex; justify-content: center; align-items: center; gap: 40px; padding: 25px; background: rgba(0,0,0,0.8); backdrop-filter: blur(15px); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05); }
         nav a { color: #fff; text-decoration: none; font-weight: 600; opacity: 0.5; font-size: 0.9rem; letter-spacing: 2px;}
         nav a.active, nav a:hover { opacity: 1; color: var(--primary); }
-        .lang-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; font-weight: bold; margin-left: 20px; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; }
-        h1 { font-size: 3rem; font-weight: 900; margin-bottom: 60px; text-transform: uppercase; }
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 40px; }
-        .project-card { background: var(--card); border-radius: 0px; border-top: 4px solid #222; transition: 0.5s; padding: 40px; }
-        .project-card:hover { border-top-color: var(--primary); }
-        .tag { display: inline-block; font-size: 0.7rem; font-weight: 800; color: var(--primary); border: 1px solid var(--primary); padding: 4px 10px; margin-right: 10px; text-transform: uppercase; margin-bottom: 10px; }
-        .highlight { color: #10b981; font-weight: bold; }
+        .lang-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; font-weight: bold; margin-left: 20px; transition: 0.3s; }
+        .lang-btn:hover { background: var(--primary); border-color: var(--primary); }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 24px 100px; }
+        h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 60px; text-transform: uppercase; border-left: 5px solid var(--primary); padding-left: 20px; }
+
+        .project-showcase { background: var(--card); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 50px; overflow: hidden; }
+        .project-header { background: #1a1a1a; padding: 40px; border-bottom: 1px solid rgba(255,255,255,0.05); position: relative; }
+        .project-header i { position: absolute; right: 40px; top: 40px; font-size: 4rem; color: rgba(255,255,255,0.05); }
+        .project-title { font-size: 2rem; color: #fff; margin-bottom: 15px; font-weight: 900; }
+        
+        .project-body { padding: 40px; }
+        .project-desc { color: #aaa; margin-bottom: 30px; font-size: 1.05rem; }
+        .highlight-text { color: #fff; font-weight: bold; }
+        .accent-text { color: var(--accent); }
+        
+        .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+        .tag { font-size: 0.75rem; font-weight: 800; color: var(--primary); background: rgba(59, 130, 246, 0.1); padding: 6px 12px; border-radius: 4px; text-transform: uppercase; }
     </style>
 </head>
 <body class="lang-en">
     <nav>
         <a href="index.html">/HOME</a>
-        <a href="projects.html" class="active"><span class="lang-en">/PROJECTS</span><span class="lang-zh">/專案</span></a>
-        <a href="cv.html"><span class="lang-en">/CV</span><span class="lang-zh">/簡歷</span></a>
+        <a href="projects.html" class="active"><span class="lang-en">/PROJECTS</span><span class="lang-zh">/深度專案</span></a>
+        <a href="cv.html"><span class="lang-en">/EXPERIENCE</span><span class="lang-zh">/職涯故事</span></a>
         <button class="lang-btn" id="langToggle">EN / 中文</button>
     </nav>
     <div class="container">
-        <h1><span class="lang-en">Flagship Projects</span><span class="lang-zh">旗艦專案</span></h1>
-        <div class="project-grid">
-            <div class="project-card">
-                <div class="tag">NVIDIA GTC 2026</div><div class="tag">MSI DGX Spark</div>
-                <h3><span class="lang-en">Campus Inspection & Ackermann Digital Twin</span><span class="lang-zh">校園巡檢與阿克曼小車數位孿生</span></h3>
-                <p class="desc">
-                    <span class="lang-en">Exhibited at NVIDIA GTC 2026 (California). Developed a complete campus autonomous inspection system using <strong>NVIDIA Alpamayo</strong> and Digital Twin technology. Personally recognized by <strong>Jensen Huang</strong> with a signed commendation.</span>
-                    <span class="lang-zh">於美國加州 NVIDIA GTC 2026 現場展出。利用 <strong>NVIDIA Alpamayo</strong> 開發完整的校園自主巡檢與阿克曼小車數位孿生系統，並獲得 <strong>黃仁勳</strong> 親筆簽名肯定。</span>
-                </p>
+        <h1>
+            <span class="lang-en">Technical Deep Dives</span>
+            <span class="lang-zh">技術特展與深度解析</span>
+        </h1>
+
+        <div class="project-showcase">
+            <div class="project-header">
+                <i class="fas fa-globe"></i>
+                <div class="tags">
+                    <span class="tag">NVIDIA GTC 2026</span><span class="tag">Omniverse</span><span class="tag">Alpamayo</span>
+                </div>
+                <div class="project-title">
+                    <span class="lang-en">Campus Inspection & Ackermann Digital Twin</span>
+                    <span class="lang-zh">校園巡檢與阿克曼小車數位孿生</span>
+                </div>
             </div>
-            <div class="project-card">
-                <div class="tag">MGX SERVER</div><div class="tag">NEMOCLAW</div>
-                <h3><span class="lang-en">Advanced AI Infrastructure & NemoClaw</span><span class="lang-zh">高階 AI 基礎設施與 NemoClaw 整合</span></h3>
-                <p class="desc">
-                    <span class="lang-en">Managing <strong>MGX Server</strong> environments and deploying <strong>NemoClaw</strong> on DGX Spark to lower the onboarding barrier for Omniverse developers through LLM-driven automation.</span>
-                    <span class="lang-zh">負責 <strong>MGX Server</strong> 升級與環境建置，並於 DGX Spark 部署 <strong>NemoClaw</strong>，試圖透過 LLM 自動化解決新手使用 Omniverse 的技術門檻。</span>
+            <div class="project-body">
+                <p class="project-desc">
+                    <span class="lang-en">This project represents the pinnacle of my industrial-academic collaboration. Exhibited at the <strong>MSI DGX Spark booth at NVIDIA GTC 2026 in California</strong>, we developed a comprehensive autonomous campus inspection system. Working closely with MSI Senior Manager Hung Shih-Che and RD Lai Yen-Cheng, I utilized <strong>NVIDIA Alpamayo</strong> and Digital Twin technology to simulate and deploy the Ackermann steering car. The project's innovation and execution were recognized with a personal signature from NVIDIA CEO <span class="highlight-text">Jensen Huang</span>.</span>
+                    <span class="lang-zh">這是我產學合作的旗艦專案，並成功於 <strong>美國加州 NVIDIA GTC 2026 微星 DGX Spark 攤位</strong> 展出。我與微星創新前瞻中心資深經理洪士哲及 RD 賴彥成緊密合作，利用 <strong>NVIDIA Alpamayo</strong> 與數位孿生技術，打造出完整的校園自主巡檢與阿克曼轉向小車系統。該專案的技術落地能力，更獲得了 NVIDIA 執行長 <span class="highlight-text">黃仁勳</span> 的親筆簽名肯定。</span>
                 </p>
             </div>
         </div>
+
+        <div class="project-showcase">
+            <div class="project-header">
+                <i class="fas fa-server"></i>
+                <div class="tags">
+                    <span class="tag">MGX Server</span><span class="tag">NemoClaw</span><span class="tag">LLM Integration</span>
+                </div>
+                <div class="project-title">
+                    <span class="lang-en">AI Infrastructure & NemoClaw Deployment</span>
+                    <span class="lang-zh">高階 AI 基礎設施與 NemoClaw 整合</span>
+                </div>
+            </div>
+            <div class="project-body">
+                <p class="project-desc">
+                    <span class="lang-en">Transitioning from pure robotics to infrastructure, I took charge of the <strong>MGX Server</strong> environment setup and system upgrades. A significant challenge in Omniverse is the steep learning curve for new developers. To solve this, I successfully deployed <strong>NemoClaw</strong> on the DGX Spark. By integrating Large Language Models (LLM), we created an intuitive interface that dramatically lowers the technical barrier for beginners entering the Omniverse ecosystem.</span>
+                    <span class="lang-zh">從純機器人控制跨足底層基礎設施，我負責了 <strong>MGX Server</strong> 的環境建置與系統升級。為了解決新手開發者難以快速上手 Omniverse 的痛點，我成功在 DGX Spark 上部署了 <strong>NemoClaw</strong>。透過整合大型語言模型 (LLM)，我們打造了能用自然語言輔助開發的工作流，大幅降低了進入數位孿生生態系的技術門檻。</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="project-showcase">
+            <div class="project-header">
+                <i class="fas fa-car"></i>
+                <div class="tags">
+                    <span class="tag">Sensor Fusion</span><span class="tag">Linux/MySQL</span><span class="tag">Unity</span>
+                </div>
+                <div class="project-title">
+                    <span class="lang-en">Hardware-in-the-Loop & Sensor Fusion</span>
+                    <span class="lang-zh">實體高爾夫球車控制與多感測器融合</span>
+                </div>
+            </div>
+            <div class="project-body">
+                <p class="project-desc">
+                    <span class="lang-en">Building a strong foundation in low-level hardware control, I engineered the autonomous navigation system for a full-scale Golf Cart. This involved deep <strong>Linux</strong> environment configuration, <strong>MySQL</strong> for telemetry data management, and <strong>Unity</strong> for preliminary visualization. I successfully integrated raw sensor data—including <span class="highlight-text">LiDAR, IMU, and Vision Cameras</span>—into the ROS2 framework, enabling robust perception for Ackermann steering platforms.</span>
+                    <span class="lang-zh">為了打下扎實的底層硬體控制基礎，我投入了實體高爾夫球車的自動化控制開發。這涵蓋了 <strong>Linux</strong> 開發環境的建置、使用 <strong>MySQL</strong> 管理遙測數據，以及利用 <strong>Unity</strong> 進行初步視覺化。我成功將 <span class="highlight-text">LiDAR、IMU 與視覺相機</span> 等底層感測器訊號接入 ROS2 架構中，為阿克曼轉向平台建立了可靠的環境感知能力。</span>
+                </p>
+            </div>
+        </div>
+
     </div>
     <script src="lang.js"></script>
 </body>
