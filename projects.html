@@ -5,37 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHU-JEN LIN | Projects</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root { --primary: #3b82f6; --bg: #050505; --card: #111; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: var(--bg); color: #fff; padding-top: 120px; }
         body.lang-en .lang-zh { display: none !important; }
         body.lang-zh .lang-en { display: none !important; }
-        
         nav { display: flex; justify-content: center; align-items: center; gap: 40px; padding: 25px; background: rgba(0,0,0,0.8); backdrop-filter: blur(15px); position: fixed; width: 100%; top: 0; z-index: 1000; }
         nav a { color: #fff; text-decoration: none; font-weight: 600; opacity: 0.5; font-size: 0.9rem; letter-spacing: 2px;}
         nav a.active, nav a:hover { opacity: 1; color: var(--primary); }
-        .lang-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; font-weight: bold; transition: 0.3s; margin-left: 20px; }
-        .lang-btn:hover { background: var(--primary); border-color: var(--primary); }
-
+        .lang-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; font-weight: bold; margin-left: 20px; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; }
-        h1 { font-size: 3rem; font-weight: 900; margin-bottom: 60px; text-transform: uppercase; letter-spacing: -1px; }
-
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
-        .project-card { background: var(--card); border-radius: 0px; border-top: 4px solid #222; transition: 0.5s; }
-        .project-card:hover { border-top-color: var(--primary); transform: scale(1.02); }
-        
-        .project-img { width: 100%; height: 250px; background: #1a1a1a; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .project-img i { font-size: 5rem; opacity: 0.1; transition: 0.5s; }
-        .project-card:hover .project-img i { opacity: 0.5; transform: rotate(10deg); color: var(--primary); }
-
-        .project-info { padding: 40px; }
-        .project-info h3 { font-size: 1.5rem; margin-bottom: 15px; color: #fff; }
-        .project-info p { color: #777; line-height: 1.8; font-size: 0.95rem; }
-        
-        .tags { margin-top: 20px; }
-        .tag { display: inline-block; font-size: 0.7rem; font-weight: 800; color: var(--primary); border: 1px solid var(--primary); padding: 4px 10px; margin-right: 10px; text-transform: uppercase; }
+        h1 { font-size: 3rem; font-weight: 900; margin-bottom: 60px; text-transform: uppercase; }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 40px; }
+        .project-card { background: var(--card); border-radius: 0px; border-top: 4px solid #222; transition: 0.5s; padding: 40px; }
+        .project-card:hover { border-top-color: var(--primary); }
+        .tag { display: inline-block; font-size: 0.7rem; font-weight: 800; color: var(--primary); border: 1px solid var(--primary); padding: 4px 10px; margin-right: 10px; text-transform: uppercase; margin-bottom: 10px; }
+        .highlight { color: #10b981; font-weight: bold; }
     </style>
 </head>
 <body class="lang-en">
@@ -46,38 +32,23 @@
         <button class="lang-btn" id="langToggle">EN / 中文</button>
     </nav>
     <div class="container">
-        <h1>
-            <span class="lang-en">Selected Projects</span>
-            <span class="lang-zh">精選專案</span>
-        </h1>
+        <h1><span class="lang-en">Flagship Projects</span><span class="lang-zh">旗艦專案</span></h1>
         <div class="project-grid">
             <div class="project-card">
-                <div class="project-img"><i class="fas fa-microchip"></i></div>
-                <div class="project-info">
-                    <h3>
-                        <span class="lang-en">Digital Twin: Autonomous UGV</span>
-                        <span class="lang-zh">數位孿生：自主無人載具</span>
-                    </h3>
-                    <p>
-                        <span class="lang-en">Development of high-fidelity robotic simulations via NVIDIA Omniverse, enabling synthetic data generation for cross-platform ROS2 deployment.</span>
-                        <span class="lang-zh">利用 NVIDIA Omniverse 開發高保真機器人仿真環境，實現合成數據生成與 ROS2 系統的跨平台部署測試。</span>
-                    </p>
-                    <div class="tags"><span class="tag">ROS2</span><span class="tag">Omniverse</span></div>
-                </div>
+                <div class="tag">NVIDIA GTC 2026</div><div class="tag">MSI DGX Spark</div>
+                <h3><span class="lang-en">Campus Inspection & Ackermann Digital Twin</span><span class="lang-zh">校園巡檢與阿克曼小車數位孿生</span></h3>
+                <p class="desc">
+                    <span class="lang-en">Exhibited at NVIDIA GTC 2026 (California). Developed a complete campus autonomous inspection system using <strong>NVIDIA Alpamayo</strong> and Digital Twin technology. Personally recognized by <strong>Jensen Huang</strong> with a signed commendation.</span>
+                    <span class="lang-zh">於美國加州 NVIDIA GTC 2026 現場展出。利用 <strong>NVIDIA Alpamayo</strong> 開發完整的校園自主巡檢與阿克曼小車數位孿生系統，並獲得 <strong>黃仁勳</strong> 親筆簽名肯定。</span>
+                </p>
             </div>
             <div class="project-card">
-                <div class="project-img"><i class="fas fa-shield-halved"></i></div>
-                <div class="project-info">
-                    <h3>
-                        <span class="lang-en">Defense Control Infrastructure</span>
-                        <span class="lang-zh">國防級控制基礎架構</span>
-                    </h3>
-                    <p>
-                        <span class="lang-en">Architecting mission-critical control algorithms and real-time operating system (RTOS) layers for unmanned defense platforms.</span>
-                        <span class="lang-zh">為國防無人載台架構關鍵任務控制演算法，並開發底層即時作業系統 (RTOS) 確保高機動性與穩定性。</span>
-                    </p>
-                    <div class="tags"><span class="tag">RTOS</span><span class="tag">Control Theory</span></div>
-                </div>
+                <div class="tag">MGX SERVER</div><div class="tag">NEMOCLAW</div>
+                <h3><span class="lang-en">Advanced AI Infrastructure & NemoClaw</span><span class="lang-zh">高階 AI 基礎設施與 NemoClaw 整合</span></h3>
+                <p class="desc">
+                    <span class="lang-en">Managing <strong>MGX Server</strong> environments and deploying <strong>NemoClaw</strong> on DGX Spark to lower the onboarding barrier for Omniverse developers through LLM-driven automation.</span>
+                    <span class="lang-zh">負責 <strong>MGX Server</strong> 升級與環境建置，並於 DGX Spark 部署 <strong>NemoClaw</strong>，試圖透過 LLM 自動化解決新手使用 Omniverse 的技術門檻。</span>
+                </p>
             </div>
         </div>
     </div>
