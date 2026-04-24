@@ -7,52 +7,49 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root { --primary: #60a5fa; --bg: #0b0f1a; --text: #f1f5f9; --card: #161e2d; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); }
-        nav { display: flex; justify-content: center; gap: 30px; padding: 25px; background: rgba(0,0,0,0.8); position: sticky; top: 0; z-index: 100; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); padding-top: 100px; }
+        nav { display: flex; justify-content: center; gap: 35px; padding: 30px; background: rgba(11, 15, 26, 0.95); position: fixed; top: 0; width: 100%; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.05); }
         nav a { color: var(--text); text-decoration: none; font-weight: 600; opacity: 0.6; }
         nav a.active { opacity: 1; color: var(--primary); }
-
-        .container { max-width: 1100px; margin: 0 auto; padding: 60px 24px; }
-        h1 { font-size: 2.5rem; margin-bottom: 40px; border-left: 5px solid var(--primary); padding-left: 20px; }
-
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-        .project-card { background: var(--card); border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
-        .project-card:hover { transform: translateY(-10px); border-color: var(--primary); }
-        .project-img { width: 100%; height: 220px; background: #2d3748; display: flex; align-items: center; justify-content: center; color: #4a5568; font-weight: bold; }
-        
-        .project-info { padding: 25px; }
-        .project-info h3 { color: var(--primary); margin-bottom: 12px; font-size: 1.4rem; }
-        .project-info p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
-        .tag { background: rgba(59,130,246,0.1); color: var(--primary); padding: 4px 12px; border-radius: 6px; font-size: 0.8rem; margin: 0 8px 8px 0; display: inline-block; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
+        h1 { font-size: 2.8rem; margin-bottom: 50px; font-weight: 800; }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 35px; }
+        .project-card { background: var(--card); border-radius: 24px; overflow: hidden; border: 1px solid rgba(255,255,255,0.03); transition: 0.4s; }
+        .project-card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 30px 60px -12px rgba(0,0,0,0.5); }
+        .project-img { width: 100%; height: 240px; background: linear-gradient(45deg, #1e293b, #0f172a); display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.2rem; font-weight: bold; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .project-info { padding: 35px; }
+        .project-info h3 { color: #fff; margin-bottom: 15px; font-size: 1.6rem; }
+        .project-info p { color: #94a3b8; line-height: 1.8; margin-bottom: 20px; }
+        .tag { background: rgba(59,130,246,0.1); color: var(--primary); padding: 6px 14px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; margin: 0 8px 8px 0; display: inline-block; }
     </style>
 </head>
 <body>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="projects.html" class="active">Projects</a>
-        <a href="cv.html">Resume/CV</a>
+        <a href="index.html">HOME</a>
+        <a href="projects.html" class="active">PROJECTS</a>
+        <a href="cv.html">RESUME</a>
     </nav>
     <div class="container">
-        <h1>Technical Projects</h1>
+        <h1>Selected Projects</h1>
         <div class="project-grid">
             <div class="project-card">
-                <div class="project-img">[貼上專案照片 1]</div>
+                <div class="project-img"><i class="fas fa-robot"></i>&nbsp; Digital Twin UGV</div>
                 <div class="project-info">
                     <div class="tags">
-                        <span class="tag">ROS2</span><span class="tag">Omniverse</span>
+                        <span class="tag">ROS2 Humble</span><span class="tag">NVIDIA Omniverse</span>
                     </div>
-                    <h3>Digital Twin Autonomous UGV</h3>
-                    <p>Designed a high-fidelity digital twin for industrial UGV testing. Focused on physics-based simulation and synthetic data generation.</p>
+                    <h3>Autonomous UGV Architecture</h3>
+                    <p>Designed a mission-critical ROS2-based control system for UGV, integrated with NVIDIA Omniverse for high-fidelity Digital Twin verification[cite: 13, 19, 23].</p>
                 </div>
             </div>
-            <div class="project-card">
-                <div class="project-img">[貼上專案照片 2]</div>
+            <div class="card project-card">
+                <div class="project-img"><i class="fas fa-cog"></i>&nbsp; Spherical Robotics</div>
                 <div class="project-info">
                     <div class="tags">
-                        <span class="tag">Control Theory</span><span class="tag">RTOS</span>
+                        <span class="tag">RTOS</span><span class="tag">STM32</span><span class="tag">PID Control</span>
                     </div>
-                    <h3>Spherical Robot Dynamic Control</h3>
-                    <p>Developed balancing algorithms and real-time control architecture for high-mobility spherical robotic platforms.</p>
+                    <h3>Spherical Robot Control</h3>
+                    <p>Implemented real-time operating systems (RTOS) and PID control for high-mobility spherical platforms, optimizing dynamic balancing[cite: 14, 21, 25, 28].</p>
                 </div>
             </div>
         </div>
