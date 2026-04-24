@@ -10,12 +10,16 @@
         :root { --primary: #3b82f6; --bg: #050505; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: var(--bg); color: #fff; padding-top: 120px; }
+        body.lang-en .lang-zh { display: none !important; }
+        body.lang-zh .lang-en { display: none !important; }
         
-        nav { display: flex; justify-content: center; gap: 40px; padding: 25px; background: rgba(0,0,0,0.8); backdrop-filter: blur(15px); position: fixed; width: 100%; top: 0; z-index: 1000; }
-        nav a { color: #fff; text-decoration: none; font-weight: 600; opacity: 0.5; }
-        nav a.active { opacity: 1; color: var(--primary); }
+        nav { display: flex; justify-content: center; align-items: center; gap: 40px; padding: 25px; background: rgba(0,0,0,0.8); backdrop-filter: blur(15px); position: fixed; width: 100%; top: 0; z-index: 1000; }
+        nav a { color: #fff; text-decoration: none; font-weight: 600; opacity: 0.5; font-size: 0.9rem; letter-spacing: 2px;}
+        nav a.active, nav a:hover { opacity: 1; color: var(--primary); }
+        .lang-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; font-weight: bold; transition: 0.3s; margin-left: 20px; }
+        .lang-btn:hover { background: var(--primary); border-color: var(--primary); }
 
-        .container { max-width: 800px; margin: 0 auto; padding: 0 24px; padding-bottom: 100px; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 24px 100px; }
         section { margin-bottom: 80px; }
         h2 { font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase; color: var(--primary); margin-bottom: 40px; border-bottom: 1px solid #222; padding-bottom: 10px; }
 
@@ -32,64 +36,85 @@
         .skill-list { color: #555; font-size: 0.85rem; }
     </style>
 </head>
-<body>
+<body class="lang-en">
     <nav>
         <a href="index.html">/HOME</a>
-        <a href="projects.html">/PROJECTS</a>
-        <a href="cv.html" class="active">/CV</a>
+        <a href="projects.html"><span class="lang-en">/PROJECTS</span><span class="lang-zh">/專案</span></a>
+        <a href="cv.html" class="active"><span class="lang-en">/CV</span><span class="lang-zh">/簡歷</span></a>
+        <button class="lang-btn" id="langToggle">EN / 中文</button>
     </nav>
     <div class="container">
         <section>
-            <h2>Professional Experience</h2>
+            <h2>
+                <span class="lang-en">Professional Experience</span>
+                <span class="lang-zh">專業經歷</span>
+            </h2>
             <div class="item">
                 <div class="item-header">
-                    <h3>Industrial Researcher</h3>
+                    <h3>
+                        <span class="lang-en">Industrial Researcher</span>
+                        <span class="lang-zh">產學合作研究員</span>
+                    </h3>
                     <span>2025.10 — PRESENT</span>
                 </div>
                 <div class="sub">Micro-Star International (MSI) × NCHU</div>
-                <p class="desc">Leading industrial-academic collaboration focused on next-generation automation and intelligent robotic platforms.</p>
+                <p class="desc">
+                    <span class="lang-en">Leading industrial-academic collaboration focused on next-generation automation and intelligent robotic platforms.</span>
+                    <span class="lang-zh">主導與微星科技之產學專案，專注於次世代自動化技術與智能機器人平台研發。</span>
+                </p>
             </div>
             <div class="item">
                 <div class="item-header">
-                    <h3>Research Assistant</h3>
+                    <h3>
+                        <span class="lang-en">Research Assistant</span>
+                        <span class="lang-zh">研究助理</span>
+                    </h3>
                     <span>2025.06 — PRESENT</span>
                 </div>
-                <div class="sub">Defense Key System R&D Center</div>
-                <p class="desc">Developing mission-critical control algorithms and hardware-in-the-loop (HIL) testing for unmanned defense systems.</p>
+                <div class="sub">
+                    <span class="lang-en">Defense Key System R&D Center</span>
+                    <span class="lang-zh">國防科技研發中心</span>
+                </div>
+                <p class="desc">
+                    <span class="lang-en">Developing mission-critical control algorithms and hardware-in-the-loop (HIL) testing for unmanned defense systems.</span>
+                    <span class="lang-zh">開發關鍵任務控制演算法，並負責國防無人系統之硬體迴圈 (HIL) 整合測試。</span>
+                </p>
             </div>
         </section>
 
         <section>
-            <h2>Education</h2>
+            <h2>
+                <span class="lang-en">Education</span>
+                <span class="lang-zh">教育背景</span>
+            </h2>
             <div class="item">
                 <div class="item-header">
-                    <h3>University of Cincinnati</h3>
+                    <h3>
+                        <span class="lang-en">University of Cincinnati</span>
+                        <span class="lang-zh">美國辛辛那提大學</span>
+                    </h3>
                     <span>EXPECTED 2026</span>
                 </div>
-                <div class="sub">MS in Mechanical Engineering (Dual Degree Program)</div>
+                <div class="sub">
+                    <span class="lang-en">MS in Mechanical Engineering (Dual Degree Program)</span>
+                    <span class="lang-zh">機械工程學系 雙聯碩士 (入學預定)</span>
+                </div>
             </div>
             <div class="item">
                 <div class="item-header">
-                    <h3>National Chung Hsing University</h3>
+                    <h3>
+                        <span class="lang-en">National Chung Hsing University</span>
+                        <span class="lang-zh">國立中興大學</span>
+                    </h3>
                     <span>GPA 3.76</span>
                 </div>
-                <div class="sub">Master of Science in Mechanical Engineering</div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Core Expertise</h2>
-            <div class="skills-grid">
-                <div>
-                    <div class="skill-cat">ROBOTICS</div>
-                    <div class="skill-list">ROS2 (Humble/Jazzy), Kinematics, Control Theory</div>
-                </div>
-                <div>
-                    <div class="skill-cat">AI & SIM</div>
-                    <div class="skill-list">NVIDIA Omniverse, Digital Twin, Synthetic Data</div>
+                <div class="sub">
+                    <span class="lang-en">Master of Science in Mechanical Engineering</span>
+                    <span class="lang-zh">機械工程學系 碩士</span>
                 </div>
             </div>
         </section>
     </div>
+    <script src="lang.js"></script>
 </body>
 </html>
