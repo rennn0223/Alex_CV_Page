@@ -10,6 +10,7 @@
         :root { --primary: #3b82f6; --bg: #050505; --accent: #10b981; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: var(--bg); color: #fff; padding-top: 120px; line-height: 1.7; overflow-x: hidden; }
+        
         body.lang-en .lang-zh { display: none !important; }
         body.lang-zh .lang-en { display: none !important; }
         
@@ -32,7 +33,6 @@
         .desc { color: #aaa; font-size: 0.95rem; }
         .desc strong { color: #ddd; }
 
-        /* 手機版優化 Media Queries */
         @media (max-width: 768px) {
             body { padding-top: 100px; }
             nav { gap: 15px; padding: 15px; }
@@ -46,6 +46,13 @@
     </style>
 </head>
 <body class="lang-en">
+    <script>
+        if(localStorage.getItem('prefLang') === 'zh') {
+            document.body.classList.remove('lang-en');
+            document.body.classList.add('lang-zh');
+        }
+    </script>
+
     <nav>
         <a href="index.html">/HOME</a>
         <a href="projects.html"><span class="lang-en">/PROJECTS</span><span class="lang-zh">/深度專案</span></a>
@@ -138,114 +145,20 @@
 
         </div>
     </div>
-    <script src="lang.js"></script>
-</body>
-</html></head>
-<body class="lang-en">
-    <nav>
-        <a href="index.html">/HOME</a>
-        <a href="projects.html"><span class="lang-en">/PROJECTS</span><span class="lang-zh">/深度專案</span></a>
-        <a href="cv.html" class="active"><span class="lang-en">/EXPERIENCE</span><span class="lang-zh">/職涯故事</span></a>
-        <button class="lang-btn" id="langToggle">EN / 中文</button>
-    </nav>
-    <div class="container">
-        <h1>
-            <span class="lang-en">My Engineering Journey</span>
-            <span class="lang-zh">工程師的進化軌跡</span>
-        </h1>
 
-        <div class="timeline">
-            
-            <div class="timeline-item">
-                <span class="date">2026.03.30 — PRESENT</span>
-                <div class="title">
-                    <span class="lang-en">Infrastructure Optimization & LLM Integration</span>
-                    <span class="lang-zh">伺服器優化與 LLM 應用導入</span>
-                </div>
-                <div class="desc">
-                    <span class="lang-en">Managing the <strong>MGX Server</strong> upgrade and environment architecture. Concurrently deploying <strong>NemoClaw</strong> on DGX Spark, actively researching ways to utilize LLMs to break down the complex technical barriers of NVIDIA Omniverse for incoming developers.</span>
-                    <span class="lang-zh">主力處理 <strong>MGX Server</strong> 的升級與底層環境建置。同時在 DGX Spark 伺服器上部署 <strong>NemoClaw</strong>，試圖透過大型語言模型 (LLM) 的輔助，解決新手進入 NVIDIA Omniverse 生態系面臨的陡峭學習曲線。</span>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <span class="date">2026.03.08 — 2026.03.21</span>
-                <div class="title">
-                    <span class="lang-en">NVIDIA GTC 2026 Exhibitor & BAIR Academic Visit</span>
-                    <span class="lang-zh">NVIDIA GTC 2026 參展與 UC Berkeley 學術交流</span>
-                </div>
-                <span class="location">San Jose, California, USA</span>
-                <div class="desc">
-                    <span class="lang-en">Traveled to California to showcase our Campus Inspection & Ackermann Digital Twin project at the <strong>MSI DGX Spark booth</strong> during NVIDIA GTC 2026. Received a personal signature of commendation from CEO Jensen Huang. Subsequently invited to <strong>UC Berkeley BAIR (Berkeley Artificial Intelligence Research)</strong> for deep-dive discussions on autonomous driving technologies.</span>
-                    <span class="lang-zh">遠赴美國加州，於 NVIDIA GTC 2026 的 <strong>微星 DGX Spark 攤位</strong> 現場展出校園巡檢與阿克曼小車數位孿生專案，並榮獲執行長黃仁勳親筆簽名肯定。展後受邀拜訪 <strong>柏克萊大學 BAIR (AI自駕中心)</strong>，參觀頂尖實驗室並進行自駕技術深度交流。</span>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <span class="date">2026.02 — PRESENT</span>
-                <div class="title">
-                    <span class="lang-en">Teaching Assistant: Electronics (A)</span>
-                    <span class="lang-zh">電子學 (A) 教學助理</span>
-                </div>
-                <span class="location">National Chung Hsing University</span>
-                <div class="desc">
-                    <span class="lang-en">Mentoring undergraduate students in foundational Electronics. This role hones my ability to break down complex hardware theories into digestible concepts, strengthening my technical communication and leadership skills.</span>
-                    <span class="lang-zh">擔任大學部電子學課程 TA。透過輔導學生解答艱澀的電路學理，不僅鞏固了我自身的硬體底層知識，更大幅提升了我的技術溝通與指導能力。</span>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <span class="date">2026.01 — 2026.02</span>
-                <div class="title">
-                    <span class="lang-en">MSI HQ Intensive Collaborative Residency</span>
-                    <span class="lang-zh">微星總部駐點協同開發</span>
-                </div>
-                <span class="location">MSI Headquarters, Zhonghe</span>
-                <div class="desc">
-                    <span class="lang-en">Undertook an intensive residency at MSI headquarters before the Lunar New Year. Collaborated directly with Senior Manager <strong>Hung Shih-Che</strong> and RD <strong>Lai Yen-Cheng</strong> from the Innovation Center. We jointly implemented the Omniverse projects targeted for GTC 2026 and conducted advanced R&D on <strong>NVIDIA Alpamayo</strong> applications.</span>
-                    <span class="lang-zh">過年前進駐新北中和的微星總部，與創新前瞻中心資深經理 <strong>洪士哲</strong> 及 RD <strong>賴彥成</strong> 展開高強度的協同實作。我們共同開發了準備於 GTC 2026 展出的 Omniverse 專案，並深入研究 <strong>NVIDIA Alpamayo</strong> 的前瞻應用。</span>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <span class="date">2025.10.30</span>
-                <div class="title">
-                    <span class="lang-en">DJI Drone Professional Certification</span>
-                    <span class="lang-zh">大疆無人機專業培訓認證</span>
-                </div>
-                <div class="desc">
-                    <span class="lang-en">Completed official DJI drone training, expanding my hardware expertise from ground vehicles (UGV) to aerial platforms (UAV).</span>
-                    <span class="lang-zh">參與並通過大疆無人機培訓課程獲得證明，將我的載具控制領域從地面 (UGV) 擴展至空中平台 (UAV)。</span>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <span class="date">2025.08.30</span>
-                <div class="title">
-                    <span class="lang-en">ROS2 Architecture & Sensor Fusion Mastery</span>
-                    <span class="lang-zh">精通 ROS2 架構與底層感測器融合</span>
-                </div>
-                <div class="desc">
-                    <span class="lang-en">Dove deep into the ROS2 ecosystem. Successfully integrated critical perception hardware including <strong>LiDAR, IMU, and Vision Cameras</strong> into a unified control system for Ackermann steering cars.</span>
-                    <span class="lang-zh">深入研究 ROS2 控制系統，並成功將 <strong>LiDAR、IMU、相機</strong> 等關鍵環境感測器訊號，完美整合至阿克曼小車的自動化架構中。</span>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <span class="date">2025.04.30</span>
-                <div class="title">
-                    <span class="lang-en">Lab Onboarding: The Hardware Foundation</span>
-                    <span class="lang-zh">實驗室啟蒙：奠定硬體與系統基礎</span>
-                </div>
-                <span class="location">Defense Key System R&D Center</span>
-                <div class="desc">
-                    <span class="lang-en">Joined the lab and began building my core competencies. Initial training focused on raw hardware control mechanisms of a full-size <strong>Golf Cart</strong>, mastering <strong>Linux</strong> environments, managing telemetry with <strong>MySQL</strong>, and exploring simulation basics in <strong>Unity</strong>.</span>
-                    <span class="lang-zh">正式進入實驗室，開始從最底層打底。初期專注於實體 <strong>高爾夫球車控制</strong>，並熟練掌握 <strong>Linux</strong> 開發環境、使用 <strong>MySQL</strong> 進行數據管理，以及學習 <strong>Unity</strong> 進行初步的物理模擬。</span>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <script src="lang.js"></script>
+    <script>
+        document.getElementById('langToggle').addEventListener('click', () => {
+            const body = document.body;
+            if (body.classList.contains('lang-en')) {
+                body.classList.remove('lang-en');
+                body.classList.add('lang-zh');
+                localStorage.setItem('prefLang', 'zh');
+            } else {
+                body.classList.remove('lang-zh');
+                body.classList.add('lang-en');
+                localStorage.setItem('prefLang', 'en');
+            }
+        });
+    </script>
 </body>
 </html>
