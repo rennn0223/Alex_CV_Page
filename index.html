@@ -19,16 +19,18 @@
         nav { display: flex; justify-content: center; align-items: center; gap: 40px; padding: 20px; background: rgba(0,0,0,0.8); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05); position: fixed; width: 100%; top: 0; z-index: 1000; flex-wrap: wrap; }
         nav a { color: #fff; text-decoration: none; font-weight: 600; font-size: 0.9rem; letter-spacing: 2px; opacity: 0.5; transition: 0.4s; }
         nav a:hover, nav a.active { opacity: 1; color: var(--primary); text-shadow: 0 0 10px var(--primary); }
-        .lang-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; font-weight: bold; margin-left: auto; }
+        .lang-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; font-weight: bold; margin-left: auto; transition: 0.3s; }
+        .lang-btn:hover { background: var(--primary); border-color: var(--primary); }
         
         .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 120px 20px 40px; }
         .name { font-size: clamp(2.8rem, 10vw, 6.5rem); font-weight: 900; letter-spacing: -2px; background: linear-gradient(to bottom, #fff, #666); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.1; margin-bottom: 15px; }
         .console { font-family: 'JetBrains Mono', monospace; background: rgba(0,0,0,0.5); padding: 10px 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); color: var(--accent); margin-bottom: 25px; font-size: clamp(0.85rem, 3vw, 1.2rem); }
         .console::before { content: "> "; color: #fff; }
-        .desc { color: #888; max-width: 600px; line-height: 1.8; font-size: 1.05rem; }
+        .desc { color: #888; max-width: 650px; line-height: 1.8; font-size: 1.05rem; }
         .btn { padding: 16px 35px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: 0.4s; margin-top: 30px; border: 1px solid var(--primary); color: var(--primary); display: inline-block; font-size: 0.9rem; }
         .btn:hover { background: var(--primary); color: #fff; box-shadow: 0 0 30px var(--primary); }
         
+        /* 手機版自適應 */
         @media (max-width: 768px) {
             nav { gap: 15px; padding: 15px; }
             nav a { font-size: 0.8rem; letter-spacing: 1px; }
@@ -58,8 +60,8 @@
             <span class="lang-zh">NVIDIA GTC 2026 參展人與 AI 架構師_</span>
         </div>
         <p class="desc">
-            <span class="lang-en">Specialized in Digital Twins & Embodied AI. Collaborative partner with MSI Innovation Center and NVIDIA GTC 2026 Project Contributor.</span>
-            <span class="lang-zh">專注於數位孿生與具身智能。微星科技 (MSI) 創新前瞻中心合作夥伴，NVIDIA GTC 2026 專案核心貢獻者。</span>
+            <span class="lang-en">Specialized in Digital Twins & Embodied AI. Collaborative partner with MSI Innovation Center and NVIDIA GTC 2026 Project Contributor. Incoming Dual MS at University of Cincinnati.</span>
+            <span class="lang-zh">專注於數位孿生與具身智能。微星科技 (MSI) 創新前瞻中心合作夥伴，NVIDIA GTC 2026 專案核心貢獻者。即將前往美國辛辛那提大學攻讀雙聯碩士。</span>
         </p>
         <a href="projects.html" class="btn">
             <span class="lang-en">EXPLORE GTC 2026 PROJECTS</span>
@@ -81,31 +83,5 @@
             }
         });
     </script>
-</body>
-</html>    </style>
-</head>
-<body class="lang-en">
-    <nav>
-        <a href="index.html" class="active">/HOME</a>
-        <a href="projects.html"><span class="lang-en">/PROJECTS</span><span class="lang-zh">/專案</span></a>
-        <a href="cv.html"><span class="lang-en">/CV</span><span class="lang-zh">/簡歷</span></a>
-        <button class="lang-btn" id="langToggle">EN / 中文</button>
-    </nav>
-    <div class="hero">
-        <h1 class="name">LIN SHU-JEN</h1>
-        <div class="console">
-            <span class="lang-en">NVIDIA GTC 2026 Exhibitor & AI Architect_</span>
-            <span class="lang-zh">NVIDIA GTC 2026 參展人與 AI 架構師_</span>
-        </div>
-        <p class="desc">
-            <span class="lang-en">Specialized in Digital Twins & Embodied AI. Collaborative partner with MSI Innovation Center and NVIDIA GTC 2026 Project Contributor.</span>
-            <span class="lang-zh">專注於數位孿生與具身智能。微星科技 (MSI) 創新前瞻中心合作夥伴，NVIDIA GTC 2026 專案核心貢獻者。</span>
-        </p>
-        <a href="projects.html" class="btn">
-            <span class="lang-en">EXPLORE GTC 2026 PROJECTS</span>
-            <span class="lang-zh">探索 GTC 2026 展出專案</span>
-        </a>
-    </div>
-    <script src="lang.js"></script>
 </body>
 </html>
