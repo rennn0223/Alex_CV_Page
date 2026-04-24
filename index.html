@@ -11,6 +11,8 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: var(--bg); color: #fff; overflow-x: hidden; }
         body::before { content: ""; position: fixed; width: 100vw; height: 100vh; background-image: radial-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px); background-size: 30px 30px; z-index: -1; }
+        
+        /* 語言顯示邏輯 */
         body.lang-en .lang-zh { display: none !important; }
         body.lang-zh .lang-en { display: none !important; }
         
@@ -27,7 +29,6 @@
         .btn { padding: 16px 35px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: 0.4s; margin-top: 30px; border: 1px solid var(--primary); color: var(--primary); display: inline-block; font-size: 0.9rem; }
         .btn:hover { background: var(--primary); color: #fff; box-shadow: 0 0 30px var(--primary); }
         
-        /* 手機版優化 Media Queries */
         @media (max-width: 768px) {
             nav { gap: 15px; padding: 15px; }
             nav a { font-size: 0.8rem; letter-spacing: 1px; }
@@ -35,6 +36,53 @@
             .desc { font-size: 0.95rem; }
         }
     </style>
+</head>
+<body class="lang-en">
+    <script>
+        if(localStorage.getItem('prefLang') === 'zh') {
+            document.body.classList.remove('lang-en');
+            document.body.classList.add('lang-zh');
+        }
+    </script>
+
+    <nav>
+        <a href="index.html" class="active">/HOME</a>
+        <a href="projects.html"><span class="lang-en">/PROJECTS</span><span class="lang-zh">/深度專案</span></a>
+        <a href="cv.html"><span class="lang-en">/EXPERIENCE</span><span class="lang-zh">/職涯故事</span></a>
+        <button class="lang-btn" id="langToggle">EN / 中文</button>
+    </nav>
+    <div class="hero">
+        <h1 class="name">LIN SHU-JEN</h1>
+        <div class="console">
+            <span class="lang-en">NVIDIA GTC 2026 Exhibitor & AI Architect_</span>
+            <span class="lang-zh">NVIDIA GTC 2026 參展人與 AI 架構師_</span>
+        </div>
+        <p class="desc">
+            <span class="lang-en">Specialized in Digital Twins & Embodied AI. Collaborative partner with MSI Innovation Center and NVIDIA GTC 2026 Project Contributor.</span>
+            <span class="lang-zh">專注於數位孿生與具身智能。微星科技 (MSI) 創新前瞻中心合作夥伴，NVIDIA GTC 2026 專案核心貢獻者。</span>
+        </p>
+        <a href="projects.html" class="btn">
+            <span class="lang-en">EXPLORE GTC 2026 PROJECTS</span>
+            <span class="lang-zh">探索 GTC 2026 展出專案</span>
+        </a>
+    </div>
+
+    <script>
+        document.getElementById('langToggle').addEventListener('click', () => {
+            const body = document.body;
+            if (body.classList.contains('lang-en')) {
+                body.classList.remove('lang-en');
+                body.classList.add('lang-zh');
+                localStorage.setItem('prefLang', 'zh');
+            } else {
+                body.classList.remove('lang-zh');
+                body.classList.add('lang-en');
+                localStorage.setItem('prefLang', 'en');
+            }
+        });
+    </script>
+</body>
+</html>    </style>
 </head>
 <body class="lang-en">
     <nav>
