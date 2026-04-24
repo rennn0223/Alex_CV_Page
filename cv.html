@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHU-JEN LIN | Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary: #60a5fa; --bg: #0b0f1a; --text: #f1f5f9; --card: #161e2d; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+        nav { display: flex; justify-content: center; gap: 30px; padding: 25px; background: rgba(0,0,0,0.8); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        nav a { color: var(--text); text-decoration: none; font-weight: 600; opacity: 0.6; }
+        nav a.active { opacity: 1; color: var(--primary); }
+        .container { max-width: 900px; margin: 0 auto; padding: 60px 24px; }
+        section { margin-bottom: 50px; }
+        h2 { font-size: 1.8rem; color: var(--primary); margin-bottom: 25px; display: flex; align-items: center; gap: 10px; }
+        .cv-card { background: var(--card); padding: 30px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); }
+        .item { margin-bottom: 25px; border-left: 2px solid #2d3748; padding-left: 20px; }
+        .date { color: #10b981; font-weight: bold; font-size: 0.9rem; }
+        h4 { font-size: 1.2rem; color: #fff; margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="cv.html" class="active">Resume</a>
+    </nav>
+    <div class="container">
+        <section>
+            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            <div class="cv-card">
+                <div class="item">
+                    <span class="date">EXPECTED FALL 2026</span>
+                    <h4>University of Cincinnati</h4>
+                    <p>MS in Mechanical Engineering (Dual Degree Program)</p>
+                </div>
+                <div class="item">
+                    <span class="date">GPA 3.76</span>
+                    <h4>National Chung Hsing University</h4>
+                    <p>MS in Mechanical Engineering (Robotics Focus)</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-briefcase"></i> Experience</h2>
+            <div class="cv-card">
+                <div class="item">
+                    <span class="date">2025.10 - PRESENT</span>
+                    <h4>Micro-Star International (MSI)</h4>
+                    <p>Industrial Researcher | Intelligent Automation Platforms</p>
+                </div>
+                <div class="item">
+                    <span class="date">2025.06 - PRESENT</span>
+                    <h4>Defense Key System R&D Center</h4>
+                    <p>Research Assistant | Unmanned Ground Systems</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
