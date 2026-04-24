@@ -7,172 +7,226 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #0f172a;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --accent: #10b981;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', -apple-system, sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; }
+        html { scroll-behavior: smooth; }
+        
+        body { 
+            font-family: 'Inter', -apple-system, sans-serif; 
+            background-color: var(--bg); 
+            color: var(--text-main); 
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
 
-        /* Header Section */
-        header { text-align: center; margin-bottom: 60px; }
-        .profile-title { font-size: 2.5rem; color: var(--secondary-color); margin-bottom: 10px; font-weight: 800; }
-        .headline { font-size: 1.2rem; color: var(--primary-color); font-weight: 600; margin-bottom: 20px; }
-        .contact-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .contact-links a { text-decoration: none; color: var(--text-muted); font-size: 0.95rem; transition: 0.3s; }
-        .contact-links a:hover { color: var(--primary-color); }
+        /* --- 互動式 Header --- */
+        header { text-align: center; margin-bottom: 80px; animation: fadeIn 1s ease-out; }
+        
+        .profile-title { 
+            font-size: 3rem; 
+            font-weight: 800; 
+            background: linear-gradient(to right, #60a5fa, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
 
-        /* Section Styling */
-        section { margin-bottom: 50px; }
-        h2 { font-size: 1.75rem; color: var(--secondary-color); margin-bottom: 25px; border-left: 5px solid var(--primary-color); padding-left: 15px; }
+        /* 打字機效果 */
+        .typewriter {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.2rem;
+            color: var(--accent);
+            border-right: 3px solid var(--accent);
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
 
-        /* Grid for Cards */
+        /* --- 導覽標籤 --- */
+        .nav-dots { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 15px; z-index: 100; }
+        .nav-dot { width: 12px; height: 12px; background: var(--text-muted); border-radius: 50%; transition: 0.3s; }
+        .nav-dot:hover { background: var(--primary); transform: scale(1.3); }
+
+        /* --- 卡片互動設計 --- */
+        section { margin-bottom: 60px; opacity: 0; transform: translateY(20px); transition: 0.6s all ease-out; }
+        section.visible { opacity: 1; transform: translateY(0); }
+
+        h2 { font-size: 1.8rem; margin-bottom: 30px; display: flex; align-items: center; gap: 10px; }
+        h2::after { content: ""; flex: 1; height: 1px; background: var(--card-bg); }
+
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
 
-        .card { background: var(--card-bg); padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); border: 1px solid #e2e8f0; }
-        .card h3 { margin-bottom: 15px; color: var(--secondary-color); font-size: 1.25rem; }
-        .card ul { list-style: none; }
-        .card ul li { margin-bottom: 10px; position: relative; padding-left: 20px; }
-        .card ul li::before { content: "▹"; position: absolute; left: 0; color: var(--primary-color); }
+        .card { 
+            background: var(--card-bg); 
+            padding: 30px; 
+            border-radius: 16px; 
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
 
-        /* Skills Tags */
-        .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
-        .tag { background: #eff6ff; color: var(--primary-color); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; border: 1px solid #dbeafe; }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary);
+        }
 
-        /* Education Table */
-        .edu-table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
-        .edu-table th, .edu-table td { padding: 15px; text-align: left; border-bottom: 1px solid #e2e8f0; }
-        .edu-table th { background: #f1f5f9; font-weight: 700; color: var(--secondary-color); }
+        .card i { font-size: 2rem; color: var(--primary); margin-bottom: 15px; }
 
-        /* Projects Section */
-        .project-item { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
-        .project-item:last-child { border-bottom: none; }
-        .project-meta { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 8px; }
+        /* --- 技術標籤 --- */
+        .tag { 
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.1); 
+            color: #93c5fd; 
+            padding: 4px 12px; 
+            border-radius: 6px; 
+            font-size: 0.8rem; 
+            margin: 4px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: 0.3s;
+        }
+        .tag:hover { background: var(--primary); color: white; }
 
-        footer { text-align: center; margin-top: 80px; color: var(--text-muted); font-size: 0.9rem; padding-bottom: 40px; }
+        /* --- 聯絡按鈕 --- */
+        .btn-group { margin-top: 30px; display: flex; justify-content: center; gap: 15px; }
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: var(--primary-dark); transform: scale(1.05); }
+
+        /* --- 動畫定義 --- */
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--accent) } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         @media (max-width: 600px) {
-            .profile-title { font-size: 2rem; }
-            .grid { grid-template-columns: 1fr; }
+            .profile-title { font-size: 2.2rem; }
+            .typewriter { font-size: 1rem; white-space: normal; border-right: none; }
         }
     </style>
 </head>
 <body>
 
+<div class="nav-dots">
+    <a href="#about" class="nav-dot" title="About"></a>
+    <a href="#edu" class="nav-dot" title="Education"></a>
+    <a href="#skills" class="nav-dot" title="Skills"></a>
+    <a href="#exp" class="nav-dot" title="Experience"></a>
+</div>
+
 <div class="container">
-    <header>
-        <h1 class="profile-title">LIN, SHU-JEN (林書任)</h1>
-        <p class="headline">Robotics Researcher | Embodied AI | Incoming Dual MS @ University of Cincinnati</p>
-        <div class="contact-links">
-            <a href="mailto:ren910223@gmail.com"><i class="fas fa-envelope"></i> ren910223@gmail.com</a>
-            <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            <a href="#"><i class="fab fa-github"></i> GitHub</a>
-            <span><i class="fas fa-location-dot"></i> Taichung, Taiwan</span>
+    <header id="about">
+        <h1 class="profile-title">LIN, SHU-JEN</h1>
+        <div class="typewriter-container">
+            <span class="typewriter">> Robotics Researcher & Embodied AI Engineer_</span>
+        </div>
+        <p style="margin-top: 20px; color: var(--text-muted);">Incoming Dual MS Student @ University of Cincinnati [cite: 2, 3]</p>
+        
+        <div class="btn-group">
+            <a href="mailto:ren910223@gmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i> Email Me</a>
+            <a href="https://github.com/" class="btn" style="background: #334155; color: white;"><i class="fab fa-github"></i> GitHub</a>
         </div>
     </header>
 
-    <section>
-        <h2>學術背景 Education</h2>
-        <table class="edu-table">
-            <thead>
-                <tr>
-                    <th>Period</th>
-                    <th>Institution & Degree</th>
-                    <th>GPA / Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>2026 Fall</td>
-                    <td><strong>University of Cincinnati</strong><br>MS in Mechanical Engineering (Dual Degree)</td>
-                    <td>Incoming</td>
-                </tr>
-                <tr>
-                    <td>2025 - Pres.</td>
-                    <td><strong>National Chung Hsing University</strong><br>Master in Mechanical Engineering</td>
-                    <td>3.76 / 4.0</td>
-                </tr>
-                <tr>
-                    <td>2021 - 2025</td>
-                    <td><strong>National Chung Hsing University</strong><br>Bachelor in Mechanical Engineering</td>
-                    <td>3.13 / 4.0</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-
-    <section>
-        <h2>核心技術 Expertise</h2>
+    <section id="edu">
+        <h2><i class="fas fa-graduation-cap"></i> 學術背景</h2>
         <div class="grid">
             <div class="card">
-                <h3><i class="fas fa-robot"></i> Robotics & Control</h3>
-                <div class="tags">
-                    <span class="tag">ROS2 (Humble/Jazzy)</span>
-                    <span class="tag">Robot Manipulation</span>
-                    <span class="tag">PID/Fuzzy Control</span>
-                    <span class="tag">RTOS</span>
-                </div>
-                <ul style="margin-top: 15px;">
-                    <li>系統整合：無人地面載具 (UGV) 與球型機器人開發。</li>
-                    <li>末端執行器：OpenClaw 研發與觸覺感測整合。</li>
-                </ul>
+                <span style="color: var(--accent); font-weight: bold;">2026 Fall</span>
+                <h3>University of Cincinnati</h3>
+                <p>Master in Mechanical Engineering [cite: 2]</p>
+                <span class="tag">Dual Degree Program</span>
             </div>
             <div class="card">
-                <h3><i class="fas fa-brain"></i> AI & Simulation</h3>
+                <span style="color: var(--accent); font-weight: bold;">2021 - 2025</span>
+                <h3>國立中興大學</h3>
+                <p>Mechanical Engineering [cite: 6]</p>
+                <span class="tag">Bachelor: GPA 3.13</span> [cite: 6]
+                <span class="tag">Master: GPA 3.76</span> [cite: 9]
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2><i class="fas fa-microchip"></i> 核心技術</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-robot"></i>
+                <h3>Robotics</h3>
+                <p>熟練 ROS2 (Humble/Jazzy) 架構，擅長 UGV 與機械手臂操控 [cite: 12, 19]。</p>
                 <div class="tags">
-                    <span class="tag">NVIDIA Omniverse</span>
-                    <span class="tag">Digital Twin</span>
-                    <span class="tag">YOLOv7</span>
-                    <span class="tag">Generative AI</span>
+                    <span class="tag">ROS2</span><span class="tag">RTOS</span><span class="tag">PID Control</span>
                 </div>
-                <ul style="margin-top: 15px;">
-                    <li>數位孿生：利用 Omniverse 進行機器人仿真與合成數據訓練。</li>
-                    <li>邊緣運算：Jetson Orin 系列平台部署優化。</li>
-                </ul>
+            </div>
+            <div class="card">
+                <i class="fas fa-vr-cardboard"></i>
+                <h3>AI Simulation</h3>
+                <p>運用 NVIDIA Omniverse 建立 Digital Twin，並使用 YOLOv7 進行目標偵測 [cite: 13, 23, 24]。</p>
+                <div class="tags">
+                    <span class="tag">Omniverse</span><span class="tag">YOLOv7</span><span class="tag">Jetson Orin</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <section>
-        <h2>專案經歷 Experience</h2>
+    <section id="exp">
+        <h2><i class="fas fa-briefcase"></i> 專業經歷</h2>
         <div class="card">
-            <div class="project-item">
-                <div class="project-meta">2025.10 - 現在</div>
-                <h3>MSI 產學合作研究員</h3>
-                <p>與微星科技 (MSI) 合作，專注於工業級機器人與 AI 視覺辨識系統開發，優化自動化生產線效率。</p>
+            <div style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; margin-bottom: 15px;">
+                <h4 style="color: var(--accent);">MSI (微星科技) 產學合作研究員 [cite: 44]</h4>
+                <p class="text-muted">2025.10 - 現在</p>
             </div>
-            <div class="project-item">
-                <div class="project-meta">2025.06 - 現在</div>
-                <h3>國防科技研發中心 研究助理</h3>
-                <p>參與國防關鍵系統研發，負責 UGV 系統整合與機器人控制算法實作。</p>
+            <div style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; margin-bottom: 15px;">
+                <h4>國防科技研發中心 研究助理 [cite: 42]</h4>
+                <p class="text-muted">2025.06 - 現在</p>
             </div>
-            <div class="project-item">
-                <div class="project-meta">競賽榮譽</div>
-                <h3>AI 智慧自動化設備創作獎</h3>
-                <p>憑藉 [在此填入作品名稱] 獲得大專院校創作獎項肯定。</p>
+            <div>
+                <h4>GTC 2026 & Computex 2026 [cite: 35, 37]</h4>
+                <p class="text-muted">技術展示與交流</p>
             </div>
         </div>
     </section>
 
-    <section>
-        <h2>技術工具 Tools</h2>
-        <div class="card">
-            <p><strong>Languages:</strong> Python, C++, C#, MATLAB</p>
-            <p><strong>Platforms:</strong> NVIDIA Jetson, DGX Spark, MGX Server, STM32</p>
-            <p><strong>Software:</strong> SolidWorks, Linux (Ubuntu), Git</p>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 LIN, SHU-JEN. Built with <i class="fas fa-code"></i> and Passion for Robotics.</p>
+    <footer style="text-align: center; color: var(--text-muted); font-size: 0.8rem;">
+        <p>&copy; 2026 LIN, SHU-JEN. Built with Code & Robotics Soul.</p>
     </footer>
 </div>
+
+<script>
+    // 滾動偵測動畫 (Scroll Reveal)
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
+    });
+</script>
 
 </body>
 </html>
