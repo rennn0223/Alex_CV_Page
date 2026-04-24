@@ -3,38 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHU-JEN LIN | Home</title>
+    <title>SHU-JEN LIN | Systems Architect</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #60a5fa; --bg: #0b0f1a; --text: #f1f5f9; --accent: #10b981; }
+        :root { --primary: #3b82f6; --accent: #10b981; --bg: #050505; --card: rgba(255, 255, 255, 0.03); }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); height: 100vh; display: flex; flex-direction: column; }
-        nav { display: flex; justify-content: center; gap: 30px; padding: 25px; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); }
-        nav a { color: var(--text); text-decoration: none; font-weight: 600; opacity: 0.6; transition: 0.3s; }
-        nav a:hover, nav a.active { opacity: 1; color: var(--primary); }
-        .hero { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
-        .name { font-size: clamp(3rem, 10vw, 5rem); font-weight: 800; background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .typewriter-box { height: 40px; margin: 20px 0; }
-        .typewriter { font-family: 'Fira Code', monospace; color: var(--accent); font-size: 1.5rem; border-right: 3px solid var(--accent); white-space: nowrap; overflow: hidden; display: inline-block; animation: typing 3.5s steps(40, end), blink 0.75s infinite; }
-        .btn { padding: 15px 35px; border-radius: 12px; text-decoration: none; font-weight: bold; transition: 0.3s; margin-top: 30px; background: var(--primary); color: white; box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3); }
-        .btn:hover { transform: translateY(-5px); background: #2563eb; }
-        @keyframes typing { from { width: 0 } to { width: 100% } }
-        @keyframes blink { from, to { border-color: transparent } 50% { border-color: var(--accent) } }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: #fff; overflow: hidden; }
+        
+        /* 背景網格特效 */
+        body::before { content: ""; position: absolute; width: 100%; height: 100%; background-image: radial-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px); background-size: 30px 30px; z-index: -1; }
+
+        nav { display: flex; justify-content: center; gap: 40px; padding: 25px; background: rgba(0,0,0,0.6); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05); position: fixed; width: 100%; top: 0; z-index: 1000; }
+        nav a { color: #fff; text-decoration: none; font-weight: 600; font-size: 0.9rem; letter-spacing: 2px; opacity: 0.5; transition: 0.4s; }
+        nav a:hover, nav a.active { opacity: 1; color: var(--primary); text-shadow: 0 0 10px var(--primary); }
+
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
+        .name { font-size: clamp(3.5rem, 12vw, 6.5rem); font-weight: 900; letter-spacing: -3px; background: linear-gradient(to bottom, #fff, #666); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; }
+        
+        .console { font-family: 'JetBrains Mono', monospace; background: rgba(0,0,0,0.5); padding: 10px 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); color: var(--accent); margin: 30px 0; font-size: 1.2rem; }
+        .console::before { content: "> "; color: #fff; }
+
+        .btn { padding: 18px 40px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: 0.4s; margin-top: 20px; position: relative; overflow: hidden; border: 1px solid var(--primary); color: var(--primary); }
+        .btn:hover { background: var(--primary); color: #fff; box-shadow: 0 0 30px var(--primary); }
+
+        footer { position: absolute; bottom: 30px; font-size: 0.7rem; color: #444; letter-spacing: 2px; }
     </style>
 </head>
 <body>
     <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="cv.html">Resume</a>
+        <a href="index.html" class="active">/HOME</a>
+        <a href="projects.html">/PROJECTS</a>
+        <a href="cv.html">/CV</a>
     </nav>
     <div class="hero">
-        <h1 class="name">SHU-JEN LIN</h1>
-        <div class="typewriter-box"><div class="typewriter">> Robotics Systems Architect_</div></div>
-        <p style="color: #94a3b8; max-width: 650px; font-size: 1.1rem;">Incoming Dual MS @ University of Cincinnati. Specialized in Digital Twins and Autonomous Systems.</p>
-        <a href="projects.html" class="btn">Explore My Work</a>
+        <h1 class="name">LIN SHU-JEN</h1>
+        <div class="console">Robotics & Embodied AI Architect</div>
+        <p style="color: #888; max-width: 500px; line-height: 1.8;">Incoming Dual MS at University of Cincinnati. Specialized in Digital Twins, Defense R&D, and Industrial AI Synergies.</p>
+        <a href="projects.html" class="btn">DISCOVER WORK</a>
+        <footer>© 2026 DESIGNED FOR THE FUTURE OF ROBOTICS</footer>
     </div>
-</body>
-</html>    </div>
 </body>
 </html>
