@@ -9,32 +9,138 @@
     <style>
         :root { --primary: #3b82f6; --bg: #050505; --accent: #10b981; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: #fff; padding-top: 120px; line-height: 1.7; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: #fff; padding-top: 120px; line-height: 1.7; overflow-x: hidden; }
         body.lang-en .lang-zh { display: none !important; }
         body.lang-zh .lang-en { display: none !important; }
         
-        nav { display: flex; justify-content: center; align-items: center; gap: 40px; padding: 25px; background: rgba(0,0,0,0.8); backdrop-filter: blur(15px); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        nav { display: flex; justify-content: center; align-items: center; gap: 40px; padding: 20px; background: rgba(0,0,0,0.8); backdrop-filter: blur(15px); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05); flex-wrap: wrap; }
         nav a { color: #fff; text-decoration: none; font-weight: 600; opacity: 0.5; font-size: 0.9rem; letter-spacing: 2px;}
         nav a.active, nav a:hover { opacity: 1; color: var(--primary); }
-        .lang-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; font-weight: bold; margin-left: 20px; transition: 0.3s;}
-        .lang-btn:hover { background: var(--primary); border-color: var(--primary); }
-
+        .lang-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; font-weight: bold; margin-left: auto; transition: 0.3s;}
+        
         .container { max-width: 850px; margin: 0 auto; padding: 0 24px 100px; }
-        h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 60px; text-transform: uppercase; border-left: 5px solid var(--primary); padding-left: 20px;}
+        h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 50px; text-transform: uppercase; border-left: 5px solid var(--primary); padding-left: 15px;}
 
-        /* 故事性時間軸設計 */
-        .timeline { position: relative; padding-left: 30px; border-left: 2px solid rgba(255,255,255,0.1); }
-        .timeline-item { margin-bottom: 50px; position: relative; }
-        .timeline-item::before { content: ""; position: absolute; left: -37px; top: 5px; width: 12px; height: 12px; background: var(--bg); border: 2px solid var(--primary); border-radius: 50%; transition: 0.3s; }
+        .timeline { position: relative; padding-left: 25px; border-left: 2px solid rgba(255,255,255,0.1); margin-left: 10px; }
+        .timeline-item { margin-bottom: 45px; position: relative; }
+        .timeline-item::before { content: ""; position: absolute; left: -32px; top: 6px; width: 12px; height: 12px; background: var(--bg); border: 2px solid var(--primary); border-radius: 50%; transition: 0.3s; }
         .timeline-item:hover::before { background: var(--primary); box-shadow: 0 0 10px var(--primary); }
         
-        .date { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: bold; color: var(--accent); margin-bottom: 10px; background: rgba(16, 185, 129, 0.1); padding: 4px 10px; border-radius: 4px; }
-        .title { font-size: 1.4rem; font-weight: 900; margin-bottom: 8px; color: #fff; }
-        .location { font-size: 0.9rem; font-weight: bold; color: #888; margin-bottom: 15px; display: block; }
-        .desc { color: #aaa; font-size: 1rem; }
+        .date { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: bold; color: var(--accent); margin-bottom: 8px; background: rgba(16, 185, 129, 0.1); padding: 4px 10px; border-radius: 4px; }
+        .title { font-size: 1.3rem; font-weight: 900; margin-bottom: 5px; color: #fff; line-height: 1.3; }
+        .location { font-size: 0.85rem; font-weight: bold; color: #888; margin-bottom: 12px; display: block; }
+        .desc { color: #aaa; font-size: 0.95rem; }
         .desc strong { color: #ddd; }
+
+        /* 手機版優化 Media Queries */
+        @media (max-width: 768px) {
+            body { padding-top: 100px; }
+            nav { gap: 15px; padding: 15px; }
+            nav a { font-size: 0.8rem; letter-spacing: 1px; }
+            .lang-btn { margin-left: 0; padding: 4px 8px; font-size: 0.75rem; }
+            h1 { font-size: 1.8rem; margin-bottom: 40px; }
+            .timeline { padding-left: 20px; margin-left: 5px; }
+            .timeline-item::before { left: -27px; }
+            .title { font-size: 1.15rem; }
+        }
     </style>
 </head>
+<body class="lang-en">
+    <nav>
+        <a href="index.html">/HOME</a>
+        <a href="projects.html"><span class="lang-en">/PROJECTS</span><span class="lang-zh">/深度專案</span></a>
+        <a href="cv.html" class="active"><span class="lang-en">/EXPERIENCE</span><span class="lang-zh">/職涯故事</span></a>
+        <button class="lang-btn" id="langToggle">EN / 中文</button>
+    </nav>
+    <div class="container">
+        <h1>
+            <span class="lang-en">My Engineering Journey</span>
+            <span class="lang-zh">工程師進化軌跡</span>
+        </h1>
+
+        <div class="timeline">
+            
+            <div class="timeline-item">
+                <span class="date">2026.03.30 — PRESENT</span>
+                <div class="title">
+                    <span class="lang-en">Infrastructure & LLM Integration</span>
+                    <span class="lang-zh">伺服器優化與 LLM 應用導入</span>
+                </div>
+                <div class="desc">
+                    <span class="lang-en">Managing the <strong>MGX Server</strong> architecture and deploying <strong>NemoClaw</strong> on DGX Spark to simplify NVIDIA Omniverse workflows using LLMs.</span>
+                    <span class="lang-zh">處理 <strong>MGX Server</strong> 升級與環境建置。並在 DGX Spark 部署 <strong>NemoClaw</strong>，透過 LLM 解決新手進入 Omniverse 生態系的技術痛點。</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <span class="date">2026.03.08 — 2026.03.21</span>
+                <div class="title">
+                    <span class="lang-en">GTC 2026 Exhibitor & BAIR Visit</span>
+                    <span class="lang-zh">GTC 2026 參展與 UC Berkeley 交流</span>
+                </div>
+                <span class="location">San Jose, California, USA</span>
+                <div class="desc">
+                    <span class="lang-en">Showcased our Digital Twin project at the <strong>MSI DGX Spark booth</strong> during NVIDIA GTC 2026, receiving Jensen Huang's signature. Invited to <strong>UC Berkeley BAIR</strong> for autonomous driving discussions.</span>
+                    <span class="lang-zh">赴美國加州於 NVIDIA GTC 2026 <strong>微星 DGX Spark 攤位</strong> 展出數位孿生專案，榮獲黃仁勳親筆簽名。受邀拜訪 <strong>柏克萊大學 BAIR (AI自駕中心)</strong> 進行深度交流。</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <span class="date">2026.02 — PRESENT</span>
+                <div class="title">
+                    <span class="lang-en">Teaching Assistant: Electronics (A)</span>
+                    <span class="lang-zh">電子學 (A) 教學助理</span>
+                </div>
+                <span class="location">National Chung Hsing University</span>
+                <div class="desc">
+                    <span class="lang-en">Mentoring undergrads in Electronics, honing my ability to break down complex hardware theories and strengthening technical communication.</span>
+                    <span class="lang-zh">擔任大學部電子學課程 TA。透過輔導學生解答艱澀電路學理，大幅提升技術溝通與指導能力。</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <span class="date">2026.01 — 2026.02</span>
+                <div class="title">
+                    <span class="lang-en">MSI HQ Collaborative Residency</span>
+                    <span class="lang-zh">微星總部駐點協同開發</span>
+                </div>
+                <span class="location">MSI Headquarters, Zhonghe</span>
+                <div class="desc">
+                    <span class="lang-en">Undertook residency at MSI HQ. Collaborated with Senior Manager <strong>Hung Shih-Che</strong> and RD <strong>Lai Yen-Cheng</strong> to develop GTC 2026 projects and <strong>NVIDIA Alpamayo</strong> applications.</span>
+                    <span class="lang-zh">進駐新北中和微星總部，與資深經理 <strong>洪士哲</strong> 及 RD <strong>賴彥成</strong> 協同開發 GTC 2026 數位孿生專案及 <strong>NVIDIA Alpamayo</strong> 應用。</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <span class="date">2025.08.30</span>
+                <div class="title">
+                    <span class="lang-en">ROS2 & Sensor Fusion Mastery</span>
+                    <span class="lang-zh">精通 ROS2 與感測器融合</span>
+                </div>
+                <div class="desc">
+                    <span class="lang-en">Successfully integrated critical perception hardware (<strong>LiDAR, IMU, Vision Cameras</strong>) into a unified ROS2 control system for Ackermann steering cars.</span>
+                    <span class="lang-zh">將 <strong>LiDAR、IMU、相機</strong> 等關鍵環境感測器訊號，完美整合至阿克曼小車的 ROS2 自動化架構中。</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <span class="date">2025.04.30</span>
+                <div class="title">
+                    <span class="lang-en">Lab Onboarding: Hardware Foundation</span>
+                    <span class="lang-zh">實驗室啟蒙：硬體與系統基礎</span>
+                </div>
+                <span class="location">Defense Key System R&D Center</span>
+                <div class="desc">
+                    <span class="lang-en">Began building core competencies focusing on raw hardware control of a <strong>Golf Cart</strong>, <strong>Linux</strong> environments, <strong>MySQL</strong> telemetry, and <strong>Unity</strong> simulation basics.</span>
+                    <span class="lang-zh">進入實驗室打底。專注於實體 <strong>高爾夫球車控制</strong>、<strong>Linux</strong> 環境建置、使用 <strong>MySQL</strong> 管理數據，以及學習 <strong>Unity</strong> 物理模擬。</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="lang.js"></script>
+</body>
+</html></head>
 <body class="lang-en">
     <nav>
         <a href="index.html">/HOME</a>
