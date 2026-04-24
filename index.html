@@ -3,37 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHU-JEN LIN | Portfolio</title>
+    <title>SHU-JEN LIN | Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root { --primary: #60a5fa; --bg: #0b0f1a; --text: #f1f5f9; --accent: #10b981; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); height: 100vh; display: flex; flex-direction: column; }
-        nav { display: flex; justify-content: center; gap: 35px; padding: 30px; background: rgba(11, 15, 26, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); }
-        nav a { color: var(--text); text-decoration: none; font-weight: 600; font-size: 1rem; opacity: 0.6; transition: 0.3s; letter-spacing: 0.5px; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); height: 100vh; display: flex; flex-direction: column; }
+        nav { display: flex; justify-content: center; gap: 30px; padding: 25px; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); }
+        nav a { color: var(--text); text-decoration: none; font-weight: 600; opacity: 0.6; transition: 0.3s; }
         nav a:hover, nav a.active { opacity: 1; color: var(--primary); }
-        .hero { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px; }
-        .name { font-size: clamp(3.5rem, 12vw, 6rem); font-weight: 900; background: linear-gradient(135deg, #fff 30%, var(--primary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -2px; }
-        .typewriter-box { height: 40px; margin: 25px 0; }
-        .typewriter { font-family: 'Fira Code', monospace; color: var(--accent); font-size: 1.6rem; border-right: 3px solid var(--accent); white-space: nowrap; overflow: hidden; display: inline-block; animation: typing 3.5s steps(40, end), blink 0.75s infinite; }
-        .desc { color: #94a3b8; max-width: 700px; font-size: 1.2rem; line-height: 1.6; }
-        .btn { padding: 18px 45px; border-radius: 12px; text-decoration: none; font-weight: 800; transition: 0.4s; margin-top: 40px; background: var(--primary); color: white; box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2); }
-        .btn:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(59, 130, 246, 0.4); }
+        .hero { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
+        .name { font-size: clamp(3rem, 10vw, 5rem); font-weight: 800; background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .typewriter-box { height: 40px; margin: 20px 0; }
+        .typewriter { font-family: 'Fira Code', monospace; color: var(--accent); font-size: 1.5rem; border-right: 3px solid var(--accent); white-space: nowrap; overflow: hidden; display: inline-block; animation: typing 3.5s steps(40, end), blink 0.75s infinite; }
+        .btn { padding: 15px 35px; border-radius: 12px; text-decoration: none; font-weight: bold; transition: 0.3s; margin-top: 30px; background: var(--primary); color: white; box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3); }
+        .btn:hover { transform: translateY(-5px); background: #2563eb; }
         @keyframes typing { from { width: 0 } to { width: 100% } }
         @keyframes blink { from, to { border-color: transparent } 50% { border-color: var(--accent) } }
     </style>
 </head>
 <body>
     <nav>
-        <a href="index.html" class="active">HOME</a>
-        <a href="projects.html">PROJECTS</a>
-        <a href="cv.html">RESUME</a>
+        <a href="index.html" class="active">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="cv.html">Resume</a>
     </nav>
     <div class="hero">
         <h1 class="name">SHU-JEN LIN</h1>
         <div class="typewriter-box"><div class="typewriter">> Robotics Systems Architect_</div></div>
-        <p class="desc">Incoming Dual MS @ <strong>University of Cincinnati</strong>. Pioneering Embodied AI and high-fidelity Digital Twin simulations at NCHU.</p>
-        <a href="projects.html" class="btn">VIEW PROJECTS</a>
+        <p style="color: #94a3b8; max-width: 650px; font-size: 1.1rem;">Incoming Dual MS @ University of Cincinnati. Specialized in Digital Twins and Autonomous Systems.</p>
+        <a href="projects.html" class="btn">Explore My Work</a>
     </div>
+</body>
+</html>    </div>
 </body>
 </html>
