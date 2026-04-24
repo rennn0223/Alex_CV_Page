@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIN, SHU-JEN | Robotics & AI Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #0f172a;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+
+        /* Header Section */
+        header { text-align: center; margin-bottom: 60px; }
+        .profile-title { font-size: 2.5rem; color: var(--secondary-color); margin-bottom: 10px; font-weight: 800; }
+        .headline { font-size: 1.2rem; color: var(--primary-color); font-weight: 600; margin-bottom: 20px; }
+        .contact-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .contact-links a { text-decoration: none; color: var(--text-muted); font-size: 0.95rem; transition: 0.3s; }
+        .contact-links a:hover { color: var(--primary-color); }
+
+        /* Section Styling */
+        section { margin-bottom: 50px; }
+        h2 { font-size: 1.75rem; color: var(--secondary-color); margin-bottom: 25px; border-left: 5px solid var(--primary-color); padding-left: 15px; }
+
+        /* Grid for Cards */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+
+        .card { background: var(--card-bg); padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); border: 1px solid #e2e8f0; }
+        .card h3 { margin-bottom: 15px; color: var(--secondary-color); font-size: 1.25rem; }
+        .card ul { list-style: none; }
+        .card ul li { margin-bottom: 10px; position: relative; padding-left: 20px; }
+        .card ul li::before { content: "▹"; position: absolute; left: 0; color: var(--primary-color); }
+
+        /* Skills Tags */
+        .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+        .tag { background: #eff6ff; color: var(--primary-color); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; border: 1px solid #dbeafe; }
+
+        /* Education Table */
+        .edu-table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .edu-table th, .edu-table td { padding: 15px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        .edu-table th { background: #f1f5f9; font-weight: 700; color: var(--secondary-color); }
+
+        /* Projects Section */
+        .project-item { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .project-item:last-child { border-bottom: none; }
+        .project-meta { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 8px; }
+
+        footer { text-align: center; margin-top: 80px; color: var(--text-muted); font-size: 0.9rem; padding-bottom: 40px; }
+
+        @media (max-width: 600px) {
+            .profile-title { font-size: 2rem; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1 class="profile-title">LIN, SHU-JEN (林書任)</h1>
+        <p class="headline">Robotics Researcher | Embodied AI | Incoming Dual MS @ University of Cincinnati</p>
+        <div class="contact-links">
+            <a href="mailto:ren910223@gmail.com"><i class="fas fa-envelope"></i> ren910223@gmail.com</a>
+            <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="#"><i class="fab fa-github"></i> GitHub</a>
+            <span><i class="fas fa-location-dot"></i> Taichung, Taiwan</span>
+        </div>
+    </header>
+
+    <section>
+        <h2>學術背景 Education</h2>
+        <table class="edu-table">
+            <thead>
+                <tr>
+                    <th>Period</th>
+                    <th>Institution & Degree</th>
+                    <th>GPA / Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2026 Fall</td>
+                    <td><strong>University of Cincinnati</strong><br>MS in Mechanical Engineering (Dual Degree)</td>
+                    <td>Incoming</td>
+                </tr>
+                <tr>
+                    <td>2025 - Pres.</td>
+                    <td><strong>National Chung Hsing University</strong><br>Master in Mechanical Engineering</td>
+                    <td>3.76 / 4.0</td>
+                </tr>
+                <tr>
+                    <td>2021 - 2025</td>
+                    <td><strong>National Chung Hsing University</strong><br>Bachelor in Mechanical Engineering</td>
+                    <td>3.13 / 4.0</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>核心技術 Expertise</h2>
+        <div class="grid">
+            <div class="card">
+                <h3><i class="fas fa-robot"></i> Robotics & Control</h3>
+                <div class="tags">
+                    <span class="tag">ROS2 (Humble/Jazzy)</span>
+                    <span class="tag">Robot Manipulation</span>
+                    <span class="tag">PID/Fuzzy Control</span>
+                    <span class="tag">RTOS</span>
+                </div>
+                <ul style="margin-top: 15px;">
+                    <li>系統整合：無人地面載具 (UGV) 與球型機器人開發。</li>
+                    <li>末端執行器：OpenClaw 研發與觸覺感測整合。</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-brain"></i> AI & Simulation</h3>
+                <div class="tags">
+                    <span class="tag">NVIDIA Omniverse</span>
+                    <span class="tag">Digital Twin</span>
+                    <span class="tag">YOLOv7</span>
+                    <span class="tag">Generative AI</span>
+                </div>
+                <ul style="margin-top: 15px;">
+                    <li>數位孿生：利用 Omniverse 進行機器人仿真與合成數據訓練。</li>
+                    <li>邊緣運算：Jetson Orin 系列平台部署優化。</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>專案經歷 Experience</h2>
+        <div class="card">
+            <div class="project-item">
+                <div class="project-meta">2025.10 - 現在</div>
+                <h3>MSI 產學合作研究員</h3>
+                <p>與微星科技 (MSI) 合作，專注於工業級機器人與 AI 視覺辨識系統開發，優化自動化生產線效率。</p>
+            </div>
+            <div class="project-item">
+                <div class="project-meta">2025.06 - 現在</div>
+                <h3>國防科技研發中心 研究助理</h3>
+                <p>參與國防關鍵系統研發，負責 UGV 系統整合與機器人控制算法實作。</p>
+            </div>
+            <div class="project-item">
+                <div class="project-meta">競賽榮譽</div>
+                <h3>AI 智慧自動化設備創作獎</h3>
+                <p>憑藉 [在此填入作品名稱] 獲得大專院校創作獎項肯定。</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>技術工具 Tools</h2>
+        <div class="card">
+            <p><strong>Languages:</strong> Python, C++, C#, MATLAB</p>
+            <p><strong>Platforms:</strong> NVIDIA Jetson, DGX Spark, MGX Server, STM32</p>
+            <p><strong>Software:</strong> SolidWorks, Linux (Ubuntu), Git</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 LIN, SHU-JEN. Built with <i class="fas fa-code"></i> and Passion for Robotics.</p>
+    </footer>
+</div>
+
+</body>
+</html>
