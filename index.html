@@ -3,38 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHU-JEN LIN | Robotics & Embodied AI</title>
+    <title>SHU-JEN LIN | Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary: #60a5fa;
-            --primary-dark: #2563eb;
-            --accent: #10b981;
-            --bg: #0b0f1a;
-            --card-bg: #161e2d;
-            --text-main: #f1f5f9;
-            --text-muted: #94a3b8;
-        }
-
-        /* 基礎樣式重置 */
+        :root { --primary: #60a5fa; --bg: #0b0f1a; --text: #f1f5f9; --card: #161e2d; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Inter', -apple-system, sans-serif;
-            background-color: var(--bg); 
-            color: var(--text-main); 
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+        
+        /* 導覽列 */
+        nav { display: flex; justify-content: center; gap: 30px; padding: 25px; background: rgba(0,0,0,0.3); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; }
+        nav a { color: var(--text); text-decoration: none; font-weight: 600; opacity: 0.7; transition: 0.3s; }
+        nav a:hover, nav a.active { opacity: 1; color: var(--primary); }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 40px 24px; }
-
-        /* 語言切換按鈕 */
-        .lang-switch {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 9999;
-            background: var(--primary);
+        .hero { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
+        .name { font-size: clamp(3rem, 10vw, 5rem); font-weight: 800; background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .title { font-family: 'Fira Code', monospace; color: #10b981; font-size: 1.5rem; margin: 20px 0; }
+        
+        .btn { padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; margin-top: 30px; display: inline-block; }
+        .btn-primary { background: var(--primary); color: white; box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3); }
+        .btn-primary:hover { transform: translateY(-5px); }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="cv.html">Resume/CV</a>
+    </nav>
+    <div class="hero">
+        <h1 class="name">SHU-JEN LIN</h1>
+        <p class="title">> Robotics & Embodied AI Researcher_</p>
+        <p style="color: #94a3b8; max-width: 600px;">Incoming Dual MS @ UC. Building the future of autonomous systems and digital twins.</p>
+        <a href="projects.html" class="btn btn-primary">Explore My Work</a>
+    </div>
+</body>
+</html>            background: var(--primary);
             color: white;
             border: none;
             padding: 10px 18px;
