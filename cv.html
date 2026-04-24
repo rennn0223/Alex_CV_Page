@@ -5,35 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHU-JEN LIN | CV</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root { --primary: #3b82f6; --bg: #050505; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: var(--bg); color: #fff; padding-top: 120px; }
         body.lang-en .lang-zh { display: none !important; }
         body.lang-zh .lang-en { display: none !important; }
-        
         nav { display: flex; justify-content: center; align-items: center; gap: 40px; padding: 25px; background: rgba(0,0,0,0.8); backdrop-filter: blur(15px); position: fixed; width: 100%; top: 0; z-index: 1000; }
         nav a { color: #fff; text-decoration: none; font-weight: 600; opacity: 0.5; font-size: 0.9rem; letter-spacing: 2px;}
-        nav a.active, nav a:hover { opacity: 1; color: var(--primary); }
-        .lang-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; font-weight: bold; transition: 0.3s; margin-left: 20px; }
-        .lang-btn:hover { background: var(--primary); border-color: var(--primary); }
-
-        .container { max-width: 800px; margin: 0 auto; padding: 0 24px 100px; }
-        section { margin-bottom: 80px; }
-        h2 { font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase; color: var(--primary); margin-bottom: 40px; border-bottom: 1px solid #222; padding-bottom: 10px; }
-
-        .item { margin-bottom: 40px; }
-        .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
-        .item-header h3 { font-size: 1.4rem; font-weight: 900; }
-        .item-header span { font-size: 0.8rem; color: #555; font-weight: bold; }
-        
-        .sub { font-weight: 700; color: #888; margin-bottom: 10px; font-size: 0.9rem; }
-        .desc { color: #666; font-size: 0.95rem; line-height: 1.7; }
-        
-        .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .skill-cat { font-weight: 900; font-size: 0.8rem; color: #fff; margin-bottom: 5px; }
-        .skill-list { color: #555; font-size: 0.85rem; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px 100px; }
+        section { margin-bottom: 60px; }
+        h2 { font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase; color: var(--primary); margin-bottom: 30px; border-bottom: 1px solid #222; padding-bottom: 10px; }
+        .item { margin-bottom: 30px; border-left: 2px solid #333; padding-left: 20px; position: relative; }
+        .item::before { content: ""; position: absolute; left: -6px; top: 0; width: 10px; height: 10px; background: var(--primary); border-radius: 50%; }
+        .date { font-weight: bold; color: #10b981; font-size: 0.85rem; }
+        h3 { font-size: 1.3rem; margin-bottom: 5px; }
+        .sub { font-weight: bold; color: #888; font-size: 0.95rem; margin-bottom: 8px; }
+        .desc { color: #666; font-size: 0.9rem; line-height: 1.6; }
+        .lang-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; font-weight: bold; margin-left: 20px; }
     </style>
 </head>
 <body class="lang-en">
@@ -45,73 +34,54 @@
     </nav>
     <div class="container">
         <section>
-            <h2>
-                <span class="lang-en">Professional Experience</span>
-                <span class="lang-zh">專業經歷</span>
-            </h2>
+            <h2><span class="lang-en">Career Timeline</span><span class="lang-zh">職涯里程碑</span></h2>
+            
             <div class="item">
-                <div class="item-header">
-                    <h3>
-                        <span class="lang-en">Industrial Researcher</span>
-                        <span class="lang-zh">產學合作研究員</span>
-                    </h3>
-                    <span>2025.10 — PRESENT</span>
-                </div>
-                <div class="sub">Micro-Star International (MSI) × NCHU</div>
+                <span class="date">2026.03 - PRESENT</span>
+                <h3 lang="en">AI Infrastructure Engineer</h3><h3 lang="zh">AI 基礎設施工程師</h3>
                 <p class="desc">
-                    <span class="lang-en">Leading industrial-academic collaboration focused on next-generation automation and intelligent robotic platforms.</span>
-                    <span class="lang-zh">主導與微星科技之產學專案，專注於次世代自動化技術與智能機器人平台研發。</span>
+                    <span class="lang-en">MGX Server environment optimization and LLM integration with <strong>NemoClaw</strong> on DGX Spark to simplify Omniverse workflows.</span>
+                    <span class="lang-zh">MGX Server 環境優化，並於 DGX Spark 整合 <strong>NemoClaw</strong> LLM 應用，簡化 Omniverse 工作流。</span>
                 </p>
             </div>
+
             <div class="item">
-                <div class="item-header">
-                    <h3>
-                        <span class="lang-en">Research Assistant</span>
-                        <span class="lang-zh">研究助理</span>
-                    </h3>
-                    <span>2025.06 — PRESENT</span>
-                </div>
-                <div class="sub">
-                    <span class="lang-en">Defense Key System R&D Center</span>
-                    <span class="lang-zh">國防科技研發中心</span>
-                </div>
+                <span class="date">2026.03</span>
+                <h3 lang="en">NVIDIA GTC 2026 Exhibitor & BAIR Visit</h3><h3 lang="zh">NVIDIA GTC 2026 參展與 BAIR 訪問</h3>
                 <p class="desc">
-                    <span class="lang-en">Developing mission-critical control algorithms and hardware-in-the-loop (HIL) testing for unmanned defense systems.</span>
-                    <span class="lang-zh">開發關鍵任務控制演算法，並負責國防無人系統之硬體迴圈 (HIL) 整合測試。</span>
+                    <span class="lang-en">Exhibited at MSI DGX Spark booth in California. Received personal signature from <strong>Jensen Huang</strong>. Invited to <strong>UC Berkeley BAIR</strong> for autonomous driving research discussions.</span>
+                    <span class="lang-zh">於美國加州微星 DGX Spark 攤位展出，獲得 <strong>黃仁勳</strong> 親筆簽名。受邀訪問 <strong>柏克萊大學 BAIR 中心</strong> 討論自動駕駛技術。</span>
+                </p>
+            </div>
+
+            <div class="item">
+                <span class="date">2026.01 - 2026.02</span>
+                <h3 lang="en">MSI HQ Collaborative residency</h3><h3 lang="zh">微星總部協同實作</h3>
+                <p class="desc">
+                    <span class="lang-en">Worked with MSI Senior Manager <strong>Hung Shih-Che</strong> and RD <strong>Lai Yen-Cheng</strong> on GTC 2026 Digital Twin projects and <strong>NVIDIA Alpamayo</strong> applications.</span>
+                    <span class="lang-zh">進駐新北中和微星總部，與資深經理 <strong>洪士哲</strong> 及 RD <strong>賴彥成</strong> 協同開發 GTC 2026 數位孿生專案及 <strong>NVIDIA Alpamayo</strong> 應用。</span>
+                </p>
+            </div>
+
+            <div class="item">
+                <span class="date">2025.06 - 2025.12</span>
+                <h3 lang="en">MSI Forward-Looking Center Researcher</h3><h3 lang="zh">微星創新前瞻中心研究員</h3>
+                <p class="desc">
+                    <span class="lang-en">Initiated NVIDIA Omniverse collaboration. Mastered ROS2 control systems (LiDAR, IMU, Camera, Ackermann Car) and completed DJI Drone certification.</span>
+                    <span class="lang-zh">啟動 NVIDIA Omniverse 合作案。精通 ROS2 控制系統（LiDAR, IMU, 相機, 阿克曼車）並取得大疆無人機培訓證明。</span>
                 </p>
             </div>
         </section>
 
         <section>
-            <h2>
-                <span class="lang-en">Education</span>
-                <span class="lang-zh">教育背景</span>
-            </h2>
+            <h2><span class="lang-en">Certifications</span><span class="lang-zh">專業證照</span></h2>
             <div class="item">
-                <div class="item-header">
-                    <h3>
-                        <span class="lang-en">University of Cincinnati</span>
-                        <span class="lang-zh">美國辛辛那提大學</span>
-                    </h3>
-                    <span>EXPECTED 2026</span>
-                </div>
-                <div class="sub">
-                    <span class="lang-en">MS in Mechanical Engineering (Dual Degree Program)</span>
-                    <span class="lang-zh">機械工程學系 雙聯碩士 (入學預定)</span>
-                </div>
+                <span class="date">2026.03.05</span>
+                <h3>NVIDIA DLI: Isaac for Accelerated Robotics</h3>
             </div>
             <div class="item">
-                <div class="item-header">
-                    <h3>
-                        <span class="lang-en">National Chung Hsing University</span>
-                        <span class="lang-zh">國立中興大學</span>
-                    </h3>
-                    <span>GPA 3.76</span>
-                </div>
-                <div class="sub">
-                    <span class="lang-en">Master of Science in Mechanical Engineering</span>
-                    <span class="lang-zh">機械工程學系 碩士</span>
-                </div>
+                <span class="date">2025.10.30</span>
+                <h3>DJI Drone Professional Training Certificate</h3>
             </div>
         </section>
     </div>
