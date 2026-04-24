@@ -3,211 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHU-JEN LIN | Home</title>
+    <title>SHU-JEN LIN | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --primary: #60a5fa; --bg: #0b0f1a; --text: #f1f5f9; --card: #161e2d; }
+        :root { --primary: #60a5fa; --bg: #0b0f1a; --text: #f1f5f9; --accent: #10b981; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
-        
-        /* 導覽列 */
-        nav { display: flex; justify-content: center; gap: 30px; padding: 25px; background: rgba(0,0,0,0.3); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; }
-        nav a { color: var(--text); text-decoration: none; font-weight: 600; opacity: 0.7; transition: 0.3s; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); height: 100vh; display: flex; flex-direction: column; }
+        nav { display: flex; justify-content: center; gap: 35px; padding: 30px; background: rgba(11, 15, 26, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        nav a { color: var(--text); text-decoration: none; font-weight: 600; font-size: 1rem; opacity: 0.6; transition: 0.3s; letter-spacing: 0.5px; }
         nav a:hover, nav a.active { opacity: 1; color: var(--primary); }
-
-        .hero { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
-        .name { font-size: clamp(3rem, 10vw, 5rem); font-weight: 800; background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .title { font-family: 'Fira Code', monospace; color: #10b981; font-size: 1.5rem; margin: 20px 0; }
-        
-        .btn { padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; margin-top: 30px; display: inline-block; }
-        .btn-primary { background: var(--primary); color: white; box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3); }
-        .btn-primary:hover { transform: translateY(-5px); }
+        .hero { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px; }
+        .name { font-size: clamp(3.5rem, 12vw, 6rem); font-weight: 900; background: linear-gradient(135deg, #fff 30%, var(--primary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -2px; }
+        .typewriter-box { height: 40px; margin: 25px 0; }
+        .typewriter { font-family: 'Fira Code', monospace; color: var(--accent); font-size: 1.6rem; border-right: 3px solid var(--accent); white-space: nowrap; overflow: hidden; display: inline-block; animation: typing 3.5s steps(40, end), blink 0.75s infinite; }
+        .desc { color: #94a3b8; max-width: 700px; font-size: 1.2rem; line-height: 1.6; }
+        .btn { padding: 18px 45px; border-radius: 12px; text-decoration: none; font-weight: 800; transition: 0.4s; margin-top: 40px; background: var(--primary); color: white; box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2); }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(59, 130, 246, 0.4); }
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink { from, to { border-color: transparent } 50% { border-color: var(--accent) } }
     </style>
 </head>
 <body>
     <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="cv.html">Resume/CV</a>
+        <a href="index.html" class="active">HOME</a>
+        <a href="projects.html">PROJECTS</a>
+        <a href="cv.html">RESUME</a>
     </nav>
     <div class="hero">
         <h1 class="name">SHU-JEN LIN</h1>
-        <p class="title">> Robotics & Embodied AI Researcher_</p>
-        <p style="color: #94a3b8; max-width: 600px;">Incoming Dual MS @ UC. Building the future of autonomous systems and digital twins.</p>
-        <a href="projects.html" class="btn btn-primary">Explore My Work</a>
+        <div class="typewriter-box"><div class="typewriter">> Robotics Systems Architect_</div></div>
+        <p class="desc">Incoming Dual MS @ <strong>University of Cincinnati</strong>. Pioneering Embodied AI and high-fidelity Digital Twin simulations at NCHU.</p>
+        <a href="projects.html" class="btn">VIEW PROJECTS</a>
     </div>
-</body>
-</html>            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 10px 18px;
-            border-radius: 30px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: 0.3s;
-        }
-        .lang-switch:hover { transform: scale(1.05); background: var(--primary-dark); }
-
-        /* 標題與打字機效果 */
-        header { padding: 40px 0; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 40px; }
-        .name-title { font-size: clamp(2.5rem, 6vw, 3.5rem); font-weight: 800; color: #fff; margin-bottom: 10px; }
-        
-        .typewriter-box { height: 30px; margin-bottom: 20px; }
-        .typewriter {
-            font-family: 'Fira Code', monospace;
-            font-size: 1.2rem;
-            color: var(--accent);
-            border-right: 3px solid var(--accent);
-            white-space: nowrap;
-            overflow: hidden;
-            display: inline-block;
-            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
-        }
-
-        /* 區塊樣式 */
-        section { margin-bottom: 60px; }
-        h2 { font-size: 1.8rem; margin-bottom: 25px; color: var(--primary); display: flex; align-items: center; gap: 10px; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { 
-            background: var(--card-bg); 
-            padding: 30px; 
-            border-radius: 16px; 
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: 0.3s;
-        }
-        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
-        .card i { font-size: 1.8rem; color: var(--primary); margin-bottom: 15px; display: block; }
-        .card h3 { margin-bottom: 10px; font-size: 1.3rem; }
-
-        .tag { 
-            display: inline-block;
-            background: rgba(59, 130, 246, 0.1); 
-            color: var(--primary); 
-            padding: 3px 10px; 
-            border-radius: 4px; 
-            font-size: 0.75rem; 
-            margin: 3px;
-            border: 1px solid rgba(59, 130, 246, 0.2);
-        }
-
-        /* 隱藏非當前語言 */
-        [lang="zh"] { display: none; }
-
-        /* 動畫效果 */
-        @keyframes typing { from { width: 0 } to { width: 100% } }
-        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--accent) } }
-
-        /* 列印優化：防止程式碼外露 */
-        @media print {
-            .lang-switch { display: none; }
-            body { background: white; color: black; }
-            .card { border: 1px solid #ccc; page-break-inside: avoid; }
-            .typewriter { border-right: none; animation: none; width: 100%; }
-        }
-    </style>
-</head>
-<body>
-
-    <button class="lang-switch" onclick="toggleLang()">EN / 中文</button>
-
-    <div class="container">
-        <header>
-            <h1 class="name-title">SHU-JEN LIN</h1>
-            <div class="typewriter-box">
-                <span class="typewriter" lang="en">> Robotics Researcher & Systems Architect_</span>
-                <span class="typewriter" lang="zh">> 機器人研究員與系統架構師_</span>
-            </div>
-            <p style="color: var(--text-muted); font-size: 1.1rem;">
-                <span lang="en">Incoming Dual MS @ <strong>University of Cincinnati</strong>. Specialist in Embodied AI & Digital Twins.</span>
-                <span lang="zh">預計 2026 秋季前往 <strong>辛辛那提大學</strong> 攻讀雙聯碩士。專精具身智能與數位孿生技術。</span>
-            </p>
-        </header>
-
-        <section id="expertise">
-            <h2 lang="en"><i class="fas fa-microchip"></i> Expertise</h2>
-            <h2 lang="zh"><i class="fas fa-microchip"></i> 專業技術</h2>
-            <div class="grid">
-                <div class="card">
-                    <i class="fas fa-robot"></i>
-                    <h3 lang="en">Autonomous Systems</h3>
-                    <h3 lang="zh">自主系統</h3>
-                    <p lang="en">Architecting scalable robot systems with ROS2. Focus on UGV integration and spherical robot dynamics.</p>
-                    <p lang="zh">使用 ROS2 構建可擴展機器人系統。專注於 UGV 整合與球型機器人動力學。</p>
-                    <div class="tag-container" style="margin-top:10px;">
-                        <span class="tag">ROS2 Humble/Jazzy</span><span class="tag">System Integration</span>
-                    </div>
-                </div>
-                <div class="card">
-                    <i class="fas fa-project-diagram"></i>
-                    <h3 lang="en">Embodied AI</h3>
-                    <h3 lang="zh">具身智能</h3>
-                    <p lang="en">Developing Digital Twins via NVIDIA Omniverse for high-fidelity simulation and training.</p>
-                    <p lang="zh">透過 NVIDIA Omniverse 開發數位孿生模型，進行高保真仿真與訓練。</p>
-                    <div class="tag-container" style="margin-top:10px;">
-                        <span class="tag">NVIDIA Omniverse</span><span class="tag">Digital Twin</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="experience">
-            <h2 lang="en"><i class="fas fa-briefcase"></i> Experience</h2>
-            <h2 lang="zh"><i class="fas fa-briefcase"></i> 專業經歷</h2>
-            <div class="card">
-                <div style="margin-bottom: 20px;">
-                    <h4 style="color: var(--accent); font-size: 1.2rem;">Micro-Star International (MSI)</h4>
-                    <p lang="en">Industrial Researcher | 2025.10 - Present</p>
-                    <p lang="zh">產學合作研究員 | 2025.10 - 現在</p>
-                </div>
-                <div>
-                    <h4 style="color: var(--accent); font-size: 1.2rem;">Defense Key System R&D Center</h4>
-                    <p lang="en">Research Assistant | 2025.06 - Present</p>
-                    <p lang="zh">研究助理 | 2025.06 - 現在</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="education">
-            <h2 lang="en"><i class="fas fa-graduation-cap"></i> Education</h2>
-            <h2 lang="zh"><i class="fas fa-graduation-cap"></i> 教育背景</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>University of Cincinnati</h3>
-                    <p lang="en">MS in Mechanical Engineering (Dual Degree)<br><strong>Expected Fall 2026</strong></p>
-                    <p lang="zh">機械工程雙聯碩士<br><strong>預計 2026 秋季入學</strong></p>
-                </div>
-                <div class="card">
-                    <h3>National Chung Hsing University</h3>
-                    <p lang="en">MS in Mechanical Engineering | GPA 3.76</p>
-                    <p lang="zh">機械工程碩士 | GPA 3.76</p>
-                </div>
-            </div>
-        </section>
-
-        <footer style="text-align: center; color: var(--text-muted); font-size: 0.8rem; margin-top: 40px;">
-            <p>&copy; 2026 SHU-JEN LIN. Optimized for Robotics Excellence.</p>
-        </footer>
-    </div>
-
-    <script>
-        let currentLang = 'en';
-        function toggleLang() {
-            currentLang = currentLang === 'en' ? 'zh' : 'en';
-            // 切換語言顯示
-            document.querySelectorAll('[lang]').forEach(el => {
-                if (el.getAttribute('lang') === currentLang) {
-                    el.style.display = (el.tagName === 'SPAN' || el.tagName === 'I') ? 'inline-block' : 'block';
-                } else {
-                    el.style.display = 'none';
-                }
-            });
-        }
-        // 初始化語言
-        window.onload = () => {
-            document.querySelectorAll('[lang="zh"]').forEach(el => el.style.display = 'none');
-        };
-    </script>
 </body>
 </html>
